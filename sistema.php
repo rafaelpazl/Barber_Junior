@@ -33,7 +33,7 @@
     }
     .containerr{
     
-      background: lightblue;
+      background: black;
       padding: 1% 2%;
       width: 100vw;
     }
@@ -135,6 +135,41 @@
     </tbody>
 </table>
   </div>
+       
+        <div class="tabela">
+	<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Horário</th>
+      <th scope="col">Reservado</th>
+      <th scope="col">Email</th>
+      <th scope="col">...</th>
+    </tr>
+  </thead>
+    <tbody>
+        <?php
+         $sql = "SELECT * FROM horarios ORDER BY id DESC";
+         $result = $conexao->query($sql);
+                
+            while($user_data = mysqli_fetch_assoc($result)){
+            
+                echo "<tr>";
+                echo "<td>". $user_data['id']. "</td>";
+                echo "<td>". $user_data['date_hora']. "</td>";
+                echo "<td>". $user_data['reservado']. "</td>";
+                echo "<td>". $user_data['email']. "</td>";
+                echo "<td>
+              
+                <a class='btn btn-success btn-sm' href='cancelar_admin.php?date_hora=$user_data[date_hora]'>LIVRE</a>
+                <a class='btn btn-danger btn-sm' href='ocupar.php?date_hora=$user_data[date_hora]'>OCUPADO</a>
+                 </td>";
+            }
+        ?>
+    </tbody>
+</table>
+  </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>
 </html>

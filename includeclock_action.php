@@ -4,8 +4,8 @@
 $conn = mysqli_connect('us-cdbr-east-06.cleardb.net', 'b5cb88ee843bc5', 'daa1987b', 'heroku_0619edf52a077e1');
 
 // Definir as datas iniciais e finais
-$data_inicial = '2023-04-19';
-$data_final = '2023-04-20';
+$data_inicial = date('Y-m-d');
+$data_final = date('Y-m-d');
 
 // Gerar horários para todas as datas das 09:00 às 19:00
 $horarios = array();
