@@ -1,66 +1,68 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #023047
-}
 
-.page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
-    background-color: #480ca8;
-}
+<!DOCTYPE HTML>
 
+<html>
+	<head>
+		<title>BarbaMan</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/style.css"/>
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  </head>
+	<style>
+		
 .formLogin {
     display: flex;
     flex-direction: column;
     background-color: #fff;
     border-radius: 7px;
-    padding: 40px;
-    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.4);
-    gap: 5px
+    padding: 10%;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+	height: 100%;
+}
+.inner{
+	display: flex;
+	justify-content: center;
+}
+
+@media screen and (min-width: 1000px) {
+
+	.wrapper.style1 {
+	width: 1000px;
+	height: 780px;
+	}
+	.formlogin{
+		width: 695px;
+		height: 460px;
+	}
 }
 
 .areaLogin img {
-    width: 420px;
+    width: 400px;
 }
 
 .formLogin h1 {
     padding: 0;
     margin: 0;
     font-weight: 500;
-    font-size: 2.3em;
+    font-size: 15px;
 }
 
 .formLogin p {
     display: inline-block;
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 25px;
+    font-size: 80%;
+    color: #000;
+    margin-bottom: 1%;
 }
 
 .formLogin input {
-    padding: 15px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-    margin-top: 5px;
+    padding: 2%;
+    font-size: 80%;
+    border: 1px solid #000;
+    margin-bottom: 5%;
+    margin-top: 1%;
     border-radius: 4px;
     transition: all linear 160ms;
     outline: none;
@@ -68,7 +70,7 @@ body {
 
 
 .formLogin input:focus {
-    border: 1px solid #f72585;
+    border: 1px solid #000;
 }
 
 .formLogin label {
@@ -78,42 +80,72 @@ body {
 
 .formLogin a {
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 5%;
     font-size: 13px;
-    color: #555;
+    color: #000;
     transition: all linear 160ms;
 }
 
 .formLogin a:hover {
-    color: #f72585;
-}
-
-.btn {
-    background-color: #f72585;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    border: none !important;
-    transition: all linear 160ms;
-    cursor: pointer;
-    margin: 0 !important;
-
-}
-
-.btn:hover {
-    transform: scale(1.05);
-    background-color: #ff0676;
-
+    color: #000;
 }
 .erro p{
     display: none;
     color: red;
 }
-</style>
-<body>
-    <div class="page">
-        <form action="testeLogin.php"method="POST" class="formLogin" >
-            <h1>Login</h1>
+.pae{
+	color: #000 !important;
+	width: 100%!important;
+	height: 100%!important;
+}
+.pae p{color: #000!important;}
+.pae label{
+	color: #000!important;
+}
+.pae input{
+	color: #000!important;
+}
+h2{
+	color: #000!important;
+}
+a{
+			text-decoration: none!important;
+			border: none!important;
+					}
+
+	</style>	
+
+	<body class="landing is-preload">	
+			<div id="page-wrapper">
+				<header id="header" class="alt">
+						<h1><a href="index.html">BARBAMAN</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="generic.html">Agendamento</a></li>
+											<li><a href="#">Cadastrar-se</a></li>
+											<li><a href="#">Entrar</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner">
+					<div class="inner">
+							<section id="one" class="wrapper style1 special">
+						<div class="inner">
+							<header class="major">
+							<div class="pae container">
+
+							<form action="testeLogin.php"method="POST" class="formLogin" >
+            <h2>Login</h2>
             <p>Digite os seus dados de acesso no campo abaixo.</p>
             <label for="email">E-mail</label>
             <input type="email" name="email" placeholder="Digite seu e-mail" autofocus="true" />
@@ -121,10 +153,63 @@ body {
             <input type="password" name="senha" placeholder="Digite sua senha" />
             <div class="erro"><p>usuarios e/ou senha incorretos!</p></div>
             <a href="/">Esqueci minha senha</a>
-            <a href="index.php">Criar uma conta</a>
-            <input type="submit" name="submit" value="Enviar" class="btn" />
+            <a href="cadastro.php">Criar uma conta</a>
+            <input type="submit" name="submit" value="ENTRAR" class="btn button fit primary"/>
+			
         </form>
+        
     </div>
-    
-</body>
+								
+							</header>
+							
+						</div>
+					</section>	
+					</section>
+
+				
+
+				
+
+				<!-- CTA -->
+					<section id="cta" class="wrapper style5">
+						<div class="inner">
+							<header>
+								<h2>Faça-nos uma visita!</h2>
+								<p>Você merece um tratamento especial, reserve agora mesmo o seu horário.</p>
+							</header>
+							<ul class="actions stacked">
+								<li><a href="#" class="button fit primary">AGENDAMENTO</a></li>
+								<li><a href="#" class="button fit">CONTATO</a></li>
+							</ul>
+						</div>
+						<div class="maps container">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d243.70127518504273!2d-38.93600925718598!3d-12.233350640390569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDEzJzYwLjAiUyAzOMKwNTYnMDkuOCJX!5e0!3m2!1spt-BR!2sbr!4v1682121998812!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.instagram.com/barbaman17/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<div class="copy">
+							<a href="http://pazwebagencia.com.br"><img src="https://pazwebagencia.com.br/assets/img/whitelogo-removebg-preview.webp" target="_blank" width="8%" alt="Pazweb"></a></div>
+						
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+	</body>
 </html>

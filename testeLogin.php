@@ -24,7 +24,7 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])
         else{
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;
-        header('Location:agendamento_hora.php');
+        header('Location:sistemausuario.php');
         }
     }
 }

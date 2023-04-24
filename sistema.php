@@ -23,7 +23,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>BARBAMAN</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   </head>
   <style>
@@ -140,7 +140,6 @@
 	<table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Horário</th>
       <th scope="col">Reservado</th>
       <th scope="col">Email</th>
@@ -155,7 +154,6 @@
             while($user_data = mysqli_fetch_assoc($result)){
             
                 echo "<tr>";
-                echo "<td>". $user_data['id']. "</td>";
                 echo "<td>". $user_data['date_hora']. "</td>";
                 echo "<td>". $user_data['reservado']. "</td>";
                 echo "<td>". $user_data['email']. "</td>";
