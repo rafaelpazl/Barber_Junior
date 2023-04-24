@@ -19,7 +19,7 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])
         if($email == 'admin@juniorbarber.com'){
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
-            header('Location:sistema.php');    
+            header('Location:sistema2.php');    
         }
         else{
         $_SESSION['email'] = $email;

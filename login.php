@@ -178,8 +178,8 @@ a{
 								<p>Você merece um tratamento especial, reserve agora mesmo o seu horário.</p>
 							</header>
 							<ul class="actions stacked">
-								<li><a href="#" class="button fit primary">AGENDAMENTO</a></li>
-								<li><a href="#" class="button fit">CONTATO</a></li>
+								<li><a href="agendamento.php" class="button fit primary">AGENDAMENTO</a></li>
+								<li><a href="https://api.whatsapp.com/send?phone=5575992845592&text=Tem%20hor%C3%A1rio%20disponivel?" class="button fit">CONTATO</a></li>
 							</ul>
 						</div>
 						<div class="maps container">

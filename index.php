@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    include_once('config.php');
+    if ((!isset($_SESSION['email']) == true) and !isset($_SESSION['senha']) == true){
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
+        
+    }    
+        $logado = $_SESSION['email'];
+
+        
+?>
+
 <!DOCTYPE HTML>
 
 <html>
@@ -21,9 +34,9 @@
 									<div id="menu">
 										<ul>
 											<li><a href="index.html">Home</a></li>
-											<li><a href="generic.html">Agendamento</a></li>
-											<li><a href="#">Cadastrar-se</a></li>
-											<li><a href="#">Entrar</a></li>
+											<li><a href="agendamento.php">Agendamento</a></li>
+											<li><a href="cadastro.php">Cadastrar-se</a></li>
+											<li><a href="login.php">Entrar</a></li>
 										</ul>
 									</div>
 								</li>
