@@ -49,10 +49,10 @@
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="generic.html">Agendamento</a></li>
-											<li><a href="#">Cadastrar-se</a></li>
-											<li><a href="#">Entrar</a></li>
+											<li><a href="index.php">Home</a></li>
+											<li><a href="agendamento.php">Agendamento</a></li>
+											<li><a href="cadastro.php">Cadastrar-se</a></li>
+											<li><a href="login.php">Entrar</a></li>
 										</ul>
 									</div>
 								</li>
@@ -71,8 +71,8 @@
         </div>
         <div class="row two">
 		<ul class="actions stacked">
-								<li><a href="agendamento.php" class="button fit primary">AGENDAR</a></li>
-								<li><a href="sair.php" class="button fit sair">SAIR</a></li>
+		<li><a href="agendamento.php" class="button fit primary">AGENDAMENTO</a></li>
+								<li><a href="https://api.whatsapp.com/send?phone=5575992845592&text=Tem%20hor%C3%A1rio%20disponivel?" class="button fit">CONTATO</a></li>
 							</ul> <div class="user">
             <?php 
             echo "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 16 16'>

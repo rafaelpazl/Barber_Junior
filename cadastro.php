@@ -33,17 +33,17 @@ header('Location: login.php');
 	<body class="landing is-preload">	
 			<div id="page-wrapper">
 				<header id="header" class="alt">
-						<h1><a href="index.html">BARBAMAN</a></h1>
+						<h1><a href="index.php">BARBAMAN</a></h1>
 						<nav id="nav">
 							<ul>
 								<li class="special">
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="generic.html">Agendamento</a></li>
-											<li><a href="#">Cadastrar-se</a></li>
-											<li><a href="#">Entrar</a></li>
+										<li><a href="index.php">Home</a></li>
+											<li><a href="agendamento.php">Agendamento</a></li>
+											<li><a href="cadastro.php">Cadastrar-se</a></li>
+											<li><a href="login.php">Entrar</a></li>
 										</ul>
 									</div>
 								</li>
@@ -60,39 +60,33 @@ header('Location: login.php');
 							<header class="major">
                                 
                             <a href="index.php"><button>Voltar</button></a>
-    <div class="box">
-        <form action="login.php" method="POST">
+							<form action="cadastro.php" method="POST">
             <fieldset>
-                <legend><b>Formulário de Cadastro</b></legend>
+                <legend><b>Fórmulário de Clientes</b></legend>
                 <br>
                 <div class="inputBox">
-                <p>Nome completo</p>
                     <input type="text" name="nome" id="nome" class="inputUser" required>
-                    <label for="nome" class="labelInput"></label>
+                    <label for="nome" class="labelInput">Nome completo</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                <p>Email</p>
                     <input type="text" name="email" id="email" class="inputUser" required>
-                    <label for="email" class="labelInput"></label>
+                    <label for="email" class="labelInput">Email</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                <p>Senha</p>
                     <input type="password" name="senha" id="senha" class="inputUser" required>
-                    <label for="senha" class="labelInput"></label>
+                    <label for="senha" class="labelInput">Senha</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                <p>Telefone</p>
-                    <input type="text" name="telefone" id="telefone" class="inputUser" required>
-                    <label for="telefone" class="labelInput"></label>
+                    <input type="tel" name="telefone" id="telefone" class="inputUser" required>
+                    <label for="telefone" class="labelInput">Telefone</label>
                 </div>
                 <br><br>
                 <input type="submit" name="submit" id="submit">
             </fieldset>
         </form>
-    </div>
 								
 							</header>
 							

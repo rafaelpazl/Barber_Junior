@@ -23,6 +23,5 @@ mysqli_query($conn, $sql);
 
 // Desconectar do banco de dados
 mysqli_close($conn);
-
 header('location:sistemausuario.php')
 ?>

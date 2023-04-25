@@ -5,8 +5,8 @@
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
         
-    }    
-        $logado = $_SESSION['email'];
+    }else{   
+        $logado = $_SESSION['email'];}
 
         
 ?>
@@ -50,7 +50,7 @@
 							<h2>BarbaMan</h2>
 							<p>Corte de cabelo de alta qualidade para homens que exigem o melhor</p>
 							<ul class="actions special">
-								<li><a href="#" class="button primary">Marcar horario</a></li>
+								<li><a href="agendamento.php" class="button primary">Marcar horario</a></li>
 							</ul>
 						</div>
 						<a href="#one" class="more scrolly">Saiba mais</a>
@@ -81,8 +81,8 @@
 								<p>Você merece um tratamento especial, reserve agora mesmo o seu horário.</p>
 							</header>
 							<ul class="actions stacked">
-								<li><a href="#" class="button fit primary">AGENDAMENTO</a></li>
-								<li><a href="#" class="button fit">CONTATO</a></li>
+								<li><a href="agendamento.php" class="button fit primary">AGENDAMENTO</a></li>
+								<li><a href="https://api.whatsapp.com/send?phone=5575992845592&text=Tem%20hor%C3%A1rio%20disponivel?" class="button fit">CONTATO</a></li>
 							</ul>
 						</div>
 						<div class="maps container">

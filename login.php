@@ -125,10 +125,10 @@ a{
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="generic.html">Agendamento</a></li>
-											<li><a href="#">Cadastrar-se</a></li>
-											<li><a href="#">Entrar</a></li>
+										<li><a href="index.php">Home</a></li>
+											<li><a href="agendamento.php">Agendamento</a></li>
+											<li><a href="cadastro.php">Cadastrar-se</a></li>
+											<li><a href="login.php">Entrar</a></li>
 										</ul>
 									</div>
 								</li>
