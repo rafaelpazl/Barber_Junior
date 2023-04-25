@@ -124,7 +124,7 @@ header('Location: login.php');
 							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
 						<div class="copy">
-							<a href="http://pazwebagencia.com.br"><img src="https://pazwebagencia.com.br/assets/img/whitelogo-removebg-preview.webp" target="_blank" width="8%" alt="Pazweb"></a></div>
+							<a href="http://pazwebagencia.com.br"><img src="a" target="_blank" width="8%" alt="Pazweb"></a></div>
 						
 					</footer>
 

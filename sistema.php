@@ -97,8 +97,7 @@
   <div class="tabela">
 	<table class="table">
   <thead>
-    <tr>
-      <th scope="col">#</th>
+    <tr>   
       <th scope="col">Nome</th>
       <th scope="col">Senha</th>
       <th scope="col">Email</th>
@@ -111,7 +110,6 @@
             while($user_data = mysqli_fetch_assoc($result))
             {
                 echo "<tr>";
-                echo "<td>". $user_data['id']. "</td>";
                 echo "<td>". $user_data['nome']. "</td>";
                 echo "<td>". $user_data['senha']. "</td>";
                 echo "<td>". $user_data['email']. "</td>";

@@ -27,7 +27,10 @@
 		.editbtn{
 			margin-top: 5%;
 		}
-	</style>
+		a{
+			text-decoration: none!important;
+			border: none!important;
+					}</style>
 	<body class="landing is-preload">	
 			<div id="page-wrapper">
 				<header id="header" class="alt">

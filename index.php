@@ -22,7 +22,10 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   </head>
-	</head>
+  <style>a{
+			text-decoration: none!important;
+			border: none!important;
+					}</style>
 	<body class="landing is-preload">	
 			<div id="page-wrapper">
 				<header id="header" class="alt">
@@ -48,7 +51,7 @@
 					<section id="banner">
 						<div class="inner">
 							<h2>BarbaMan</h2>
-							<p>Corte de cabelo de alta qualidade para homens que exigem o melhor</p>
+							<p>Corte de cabelo com alta qualidade para homens que exigem o melhor</p>
 							<ul class="actions special">
 								<li><a href="agendamento.php" class="button primary">Marcar horario</a></li>
 							</ul>
@@ -99,7 +102,7 @@
 							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
 						<div class="copy">
-							<a href="http://pazwebagencia.com.br"><img src="https://pazwebagencia.com.br/assets/img/whitelogo-removebg-preview.webp" target="_blank" width="8%" alt="Pazweb"></a></div>
+							<a href="http://pazwebagencia.com.br"><img src=".//images/pazweb.webp" target="_blank" width="8%" alt="Pazweb"></a></div>
 						
 					</footer>
 
