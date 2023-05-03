@@ -26,10 +26,14 @@ header('Location: login.php');
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   </head>
-	<style>a{
+	<style>
+		
+	
+	a{
 			text-decoration: none!important;
 			border: none!important;
-					}</style>
+		}		
+					</style>
 	<body class="landing is-preload">	
 			<div id="page-wrapper">
 				<header id="header" class="alt">
@@ -52,43 +56,51 @@ header('Location: login.php');
 					</header>
 
 				<!-- Banner -->
-					<section id="banner">
+					<section id="">
 						<div class="inner">
-							<h2>CADASTRO</h2>
+					
 							<section id="one" class="wrapper style1 special">
 						<div class="inner">
-							<header class="major">
+						
+							
                                 
-                            <a href="index.php"><button>Voltar</button></a>
 							<form action="cadastro.php" method="POST">
             <fieldset>
-                <legend><b>Fórmulário de Clientes</b></legend>
+			<h2>CADASTRO</h2>
                 <br>
-                <div class="inputBox">
+                <div class="form-group">
+				Nome completo
+				<br><br>
                     <input type="text" name="nome" id="nome" class="inputUser" required>
-                    <label for="nome" class="labelInput">Nome completo</label>
+                    <label for="nome" class="labelInput"></label>
                 </div>
                 <br><br>
                 <div class="inputBox">
+				Email
+				<br><br>
                     <input type="text" name="email" id="email" class="inputUser" required>
-                    <label for="email" class="labelInput">Email</label>
+                    <label for="email" class="labelInput"></label>
                 </div>
                 <br><br>
                 <div class="inputBox">
+				Senha
+				<br><br>
                     <input type="password" name="senha" id="senha" class="inputUser" required>
-                    <label for="senha" class="labelInput">Senha</label>
+                    <label for="senha" class="labelInput"></label>
                 </div>
                 <br><br>
                 <div class="inputBox">
+				Telefone
+				<br><br>
                     <input type="tel" name="telefone" id="telefone" class="inputUser" required>
-                    <label for="telefone" class="labelInput">Telefone</label>
+                    <label for="telefone" class="labelInput"></label>
                 </div>
                 <br><br>
                 <input type="submit" name="submit" id="submit">
             </fieldset>
         </form>
 								
-							</header>
+							
 							
 						</div>
 					</section>	
@@ -124,7 +136,7 @@ header('Location: login.php');
 							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
 						<div class="copy">
-							<a href="http://pazwebagencia.com.br"><img src="a" target="_blank" width="8%" alt="Pazweb"></a></div>
+						<a href="http://pazwebagencia.com.br"><img src=".//images/pazweb.webp" target="_blank" width="8%" alt="Pazweb"></a></div>
 						
 					</footer>
 
