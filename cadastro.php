@@ -25,6 +25,7 @@ header('Location: login.php');
 		<link rel="stylesheet" href="assets/css/style.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   </head>
 	<style>
 		
@@ -131,9 +132,9 @@ header('Location: login.php');
 					<footer id="footer">
 						<ul class="icons">
 							
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							
 							<li><a href="https://www.instagram.com/barbaman17/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="mailto:junniorssilva92@gmail.com?subject=Barba Man&body=" target="_blank" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
 						<div class="copy">
 						<a href="http://pazwebagencia.com.br"><img src=".//images/pazweb.webp" target="_blank" width="8%" alt="Pazweb"></a></div>
