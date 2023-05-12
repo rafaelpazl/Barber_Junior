@@ -319,13 +319,13 @@ input[type="radio"] {
         <input type="radio" name="slider" id="item-3">
       <div class="cards">
         <label class="card" for="item-1" id="song-1">
-          <img src="images/corte1.png" alt="song">
+          <img src="images/corte1.jpg" alt="song">
         </label>
         <label class="card" for="item-2" id="song-2">
-          <img src="images/corte2.png" alt="song">
+          <img src="images/corte2.jpg" alt="song">
         </label>
         <label class="card" for="item-3" id="song-3">
-          <img src="images/corte3.png" alt="song">
+          <img src="images/corte3.jpg" alt="song">
         </label>
        
       </div>
