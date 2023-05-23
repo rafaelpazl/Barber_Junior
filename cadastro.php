@@ -3,7 +3,7 @@
         include_once('config.php');
 
 $nome = $_POST['nome'];
-$email = $_POST['email'];
+$email = strtolower($_POST['email']);
 $senha = $_POST['senha'];
 $telefone = $_POST['telefone'];
 

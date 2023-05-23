@@ -25,6 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BARBAMAN</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   </head>
   <style>
     body{
@@ -73,6 +74,109 @@
         justify-content: space-between;
         
     }
+    body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.containerr {
+  background: black;
+  padding: 1% 2%;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.user {
+  padding: 4px;
+  background: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+button {
+  padding: 4px;
+  background: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  border: blue;
+}
+
+.tabela {
+  overflow-x: auto;
+}
+
+h1 {
+  text-align: center;
+  margin-right: 50%;
+  color: #fff;
+  width: 100%;
+}
+
+.row {
+  width: 100%;
+}
+
+.one {
+  text-align: center;
+}
+
+.two .col {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 576px) {
+  .containerr {
+    padding: 1% 1%;
+  }
+  h1 {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .row.two .col {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 992px) {
+  .containerr {
+    padding: 1% 1.5%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .containerr {
+    padding: 1% 2%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .containerr {
+    padding: 1% 2.5%;
+  }
+}
+
+@media (max-width: 1600px) {
+  .containerr {
+    padding: 1% 3%;
+  }
+}
+
+@media (max-width: 1800px) {
+  .containerr {
+    padding: 1% 3.5%;
+  }
+}
+
+/* Remover rolagem lateral */
+@media (max-width: 576px) {
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
 </style>
 <body>
     <div class="containerr">
@@ -134,37 +238,49 @@
 </table>
   </div>
        
-        <div class="tabela">
-	<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Horário</th>
-      <th scope="col">Reservado</th>
-      <th scope="col">Email</th>
-      <th scope="col">...</th>
-    </tr>
-  </thead>
+  <div class="tabela">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Horário</th>
+        <th scope="col">Reservado</th>
+        <th scope="col">Nome</th>
+        <th scope="col">...</th>
+      </tr>
+    </thead>
     <tbody>
-        <?php
-         $sql = "SELECT * FROM horarios ORDER BY id DESC";
-         $result = $conexao->query($sql);
-                
-            while($user_data = mysqli_fetch_assoc($result)){
-            
-                echo "<tr>";
-                echo "<td>". $user_data['date_hora']. "</td>";
-                echo "<td>". $user_data['reservado']. "</td>";
-                echo "<td>". $user_data['email']. "</td>";
-                echo "<td>
-              
+      <?php
+        $sql = "SELECT * FROM horarios ORDER BY id ASC";
+        $result = $conexao->query($sql);
+
+        while ($user_data = mysqli_fetch_assoc($result)) {
+          // Obter o nome correspondente ao email na tabela usuarios
+          $email = $user_data['email'];
+          $sql_usuario = "SELECT nome FROM usuarios WHERE email = '$email'";
+          $result_usuario = $conexao->query($sql_usuario);
+
+          // Verificar se há correspondência na tabela usuarios
+          if ($result_usuario && mysqli_num_rows($result_usuario) > 0) {
+            $nome_usuario = mysqli_fetch_assoc($result_usuario)['nome'];
+          } else {
+            $nome_usuario = "";
+          }
+
+          echo "<tr>";
+          echo "<td>". $user_data['date_hora']. "</td>";
+          echo "<td>". $user_data['reservado']. "</td>";
+          echo "<td>". $nome_usuario. "</td>"; // Substituir pelo nome correspondente
+          echo "<td>
                 <a class='btn btn-success btn-sm' href='cancelar_admin.php?date_hora=$user_data[date_hora]'>LIVRE</a>
                 <a class='btn btn-danger btn-sm' href='ocupar.php?date_hora=$user_data[date_hora]'>OCUPADO</a>
-                 </td>";
-            }
-        ?>
+               </td>";
+          echo "</tr>";
+        }
+      ?>
     </tbody>
-</table>
-  </div>
+  </table>
+</div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>

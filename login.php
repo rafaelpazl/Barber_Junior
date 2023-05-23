@@ -149,11 +149,11 @@ a{
             <h2>Login</h2>
             <p>Digite os seus dados de acesso no campo abaixo.</p>
             <label for="email">E-mail</label>
-            <input type="email" name="email" placeholder="Digite seu e-mail" autofocus="true" />
+            <input type="email" name="email" placeholder="Digite seu e-mail" autofocus="true"/>
             <label for="password">Senha</label>
             <input type="password" name="senha" placeholder="Digite sua senha" />
             <div class="erro"><p>usuarios e/ou senha incorretos!</p></div>
-            <a href="/">Esqueci minha senha</a>
+ 
             <a href="cadastro.php">Criar uma conta</a>
             <input type="submit" name="submit" value="ENTRAR" class="btn button fit primary"/>
 			
