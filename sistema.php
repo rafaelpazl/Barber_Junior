@@ -14,8 +14,7 @@
         header('Location: login.php');} 
         
 
-        $sql = "SELECT * FROM usuarios ORDER BY id DESC";
-        $result = $conexao->query($sql);
+        
 ?>
 
 <!doctype html>
@@ -177,9 +176,10 @@ h1 {
   }
 }
 
+
 </style>
 <body>
-    <div class="containerr">
+<div class="containerr">
         <div class="row one">
             <div class="col-md-12"><h1>PAINEL DE CONTROLE</h1></div>
         </div>
@@ -194,8 +194,60 @@ h1 {
           </div>
         </div>
       </div></div>
-        </div>
-    </div>
+<div class="tabela">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Horário</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Reservado</th>
+        <th scope="col">...</th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php
+$sql = "SELECT * FROM horarios ORDER BY id ASC";
+$result = $conexao->query($sql);
+
+while ($user_data = mysqli_fetch_assoc($result)) {
+    // Obter o nome correspondente ao email na tabela usuarios
+    $email = $user_data['email'];
+    $sql_usuario = "SELECT nome FROM usuarios WHERE email = '$email'";
+    $result_usuario = $conexao->query($sql_usuario);
+
+    // Verificar se há correspondência na tabela usuarios
+    if ($result_usuario && mysqli_num_rows($result_usuario) > 0) {
+        $nome_usuario = mysqli_fetch_assoc($result_usuario)['nome'];
+    } else {
+        $nome_usuario = "";
+    }
+
+    // Verificar se a coluna "reservado" é igual a 1 e a coluna "email" está vazia
+    if ($user_data['reservado'] == 1 && empty($user_data['email'])) {
+        $user_data['email'] = "OCUPADO";
+    }
+
+    echo "<tr>";
+    echo "<td>". $user_data['date_hora']. "</td>";
+    echo "<td>". $nome_usuario. "</td>"; // Substituir pelo nome correspondente
+    echo "<td>". $user_data['email']. "</td>";
+    echo "<td>
+        <a class='btn btn-success btn-sm' href='cancelar_admin.php?date_hora=$user_data[date_hora]'>LIVRE</a>
+        <a class='btn btn-danger btn-sm' href='ocupar.php?date_hora=$user_data[date_hora]'>OCUPADO</a>
+    </td>";
+    echo "</tr>";
+}
+?>
+
+    </tbody>
+  </table>
+</div>
+    <?php
+    $sql = "SELECT * FROM usuarios ORDER BY id DESC";
+    $result = $conexao->query($sql);
+    ?>
+        
+   
     <div class="col-md-12">     
   </nav>
   <div class="tabela">
@@ -238,48 +290,7 @@ h1 {
 </table>
   </div>
        
-  <div class="tabela">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Horário</th>
-        <th scope="col">Reservado</th>
-        <th scope="col">Nome</th>
-        <th scope="col">...</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-        $sql = "SELECT * FROM horarios ORDER BY id ASC";
-        $result = $conexao->query($sql);
-
-        while ($user_data = mysqli_fetch_assoc($result)) {
-          // Obter o nome correspondente ao email na tabela usuarios
-          $email = $user_data['email'];
-          $sql_usuario = "SELECT nome FROM usuarios WHERE email = '$email'";
-          $result_usuario = $conexao->query($sql_usuario);
-
-          // Verificar se há correspondência na tabela usuarios
-          if ($result_usuario && mysqli_num_rows($result_usuario) > 0) {
-            $nome_usuario = mysqli_fetch_assoc($result_usuario)['nome'];
-          } else {
-            $nome_usuario = "";
-          }
-
-          echo "<tr>";
-          echo "<td>". $user_data['date_hora']. "</td>";
-          echo "<td>". $user_data['reservado']. "</td>";
-          echo "<td>". $nome_usuario. "</td>"; // Substituir pelo nome correspondente
-          echo "<td>
-                <a class='btn btn-success btn-sm' href='cancelar_admin.php?date_hora=$user_data[date_hora]'>LIVRE</a>
-                <a class='btn btn-danger btn-sm' href='ocupar.php?date_hora=$user_data[date_hora]'>OCUPADO</a>
-               </td>";
-          echo "</tr>";
-        }
-      ?>
-    </tbody>
-  </table>
-</div>
+ 
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

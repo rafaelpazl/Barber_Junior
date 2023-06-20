@@ -71,8 +71,8 @@
         </div>
         <div class="row two">
 		<ul class="actions stacked">
-		<li><a href="agendamento.php" class="button fit primary">AGENDAMENTO</a></li>
-								<li><a href="https://api.whatsapp.com/send?phone=5575992845592&text=Tem%20hor%C3%A1rio%20disponivel?" class="button fit">CONTATO</a></li>
+		<li><a href="agendamento.php" class="button fit primary">AGENDAR</a></li>
+								
 							</ul> <div class="user">
             <?php 
             echo "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 16 16'>
@@ -97,23 +97,32 @@
     </tr>
   </thead>
     <tbody>
-        <?php
-                
-            while($user_data = mysqli_fetch_assoc($result))
-            {if($user_data['email'] == $logado){
-                echo "<tr>";   
-                echo "<td>". $user_data['date_hora']. "</td>";
-                echo "<td>
-              
-                <a class='btn btn-danger btn-sm' href='cancelar.php?date_hora=$user_data[date_hora]'>
+	<?php
+$agendamentosEncontrados = false;
+
+while ($user_data = mysqli_fetch_assoc($result)) {
+    if ($user_data['email'] == $logado) {
+        $agendamentosEncontrados = true;
+        echo "<tr>";
+        echo "<td>" . $user_data['date_hora'] . "</td>";
+        echo "<td>
+            <a class='btn btn-danger btn-sm' href='cancelar.php?date_hora=$user_data[date_hora]'>
                 <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
-  <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
-  <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
-</svg>
-</a>
-                 </td>";
-            }}
-        ?>
+                    <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
+                    <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
+                </svg>
+            </a>
+        </td>";
+    }
+}
+
+if (!$agendamentosEncontrados) {
+    echo "<tr>";
+    echo "<td colspan='2'>Sem agendamentos</td>";
+    echo "</tr>";
+}
+?>
+
     </tbody>
 </table>
   </div>
@@ -141,7 +150,7 @@
 							</ul>
 						</div>
 						<div class="maps container">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d243.70127518504273!2d-38.93600925718598!3d-12.233350640390569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDEzJzYwLjAiUyAzOMKwNTYnMDkuOCJX!5e0!3m2!1spt-BR!2sbr!4v1682121998812!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2528.3250209654498!2d-38.93612629239332!3d-12.23404091330265!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x714392931d59897%3A0x24f8fde83bef7b38!2sBarbaman!5e0!3m2!1spt-BR!2sbr!4v1684929447255!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 						</div>
 					</section>
 

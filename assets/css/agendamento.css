@@ -2906,7 +2906,7 @@ input, select, textarea {
 			.wrapper.style1 input[type="tel"],
 			.wrapper.style1 select,
 			.wrapper.style1 textarea {
-				background-color: rgba(255, 0, 0, 0.075);
+				background-color: rgba(255, 255, 255, 0.075);
 			}
 
 			.wrapper.style1 select {
@@ -3848,7 +3848,19 @@ input, select, textarea {
 		background-size: cover;
 		height: 100vh;
 		
+		
 	}
+	@media (max-width: 10000px) {
+		body.is-mobile.landing #banner,
+	body.is-mobile.landing .wrapper.style4 {
+		   display: inline-table;}
+		   .major img {
+			
+			height: 108%!important;
+			
+		}
+	}
+
 	.style5{
 		background: #000!important;
 		color: #fff!important;
