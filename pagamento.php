@@ -7,7 +7,7 @@
         header('Location: login.php');
     }    
         $logado = $_SESSION['email'];
-
+		$servico = $_GET['servico'];
         $sql = "SELECT * FROM horarios ORDER BY id DESC";
         $result = $conexao->query($sql);
 ?>
@@ -22,30 +22,48 @@
 		<link rel="stylesheet" href="assets/css/pagamento.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   </head>
-	<style>a{
+	<style>
+	a{
 			text-decoration: none!important;
 			border: none!important;
-					}
-                    .major{
-                        display: flex;
+			display: flex;
+    		justify-content: center;
+	}
+    .major{
+		display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
     flex-direction: column;
     padding: 5%;
                     }
-                    img{
+                    .major img{
                         display: flex;
-                    }
-                    .wrapper.style1 {
-                        display: table-footer-group;
-                    }
+						margin: 2% 0;
+						width: 50%;
 
+                    }
+					.major{
+						font-weight: 600;
+					}
+					@media screen and (max-width: 414px) {
+
+						.major img{
+                        width: 60%;	
+                    }}
+                    
+					@media screen and (max-height: 600px) {
+
+.banner {
+	all: unset;
+}}
                         </style>
 	<body class="landing is-preload">	
 			<div id="page-wrapper">
-				<header id="header" class="alt">
+			<header id="header" class="alt">
 						<h1><a href="index.html">BARBAMAN</a></h1>
 						<nav id="nav">
 							<ul>
@@ -53,10 +71,10 @@
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="generic.html">Agendamento</a></li>
-											<li><a href="#">Cadastrar-se</a></li>
-											<li><a href="#">Entrar</a></li>
+										<li><a href="index.php">Home</a></li>
+											<li><a href="agendamento.php">Agendamento</a></li>
+											<li><a href="cadastro.php">Cadastrar-se</a></li>
+											<li><a href="login.php">Entrar</a></li>
 										</ul>
 									</div>
 								</li>
@@ -65,24 +83,91 @@
 					</header>
 
 				<!-- Banner -->
-					<section id="banner">
+					<section class="banner">
 						<div class="inner">
-							<h2>PAGAMENTO</h2>
 							<section id="one" class="wrapper style1 special">
 						<div class="inner">
 							<header class="major">
-
-                            <p>Use o QR Code do Pix para pagar
-Abra o app em que vai fazer a transferência, escaneie a imagem ou cole o código do QR Code</p>
-                            <img src=".//images/pix.png" alt="QRcode" width="50%">
-                            <br>
-                            <h5>R$ 20,00</h5>
+						
+                           
+                            <?php
+if ($servico == 1){
+	echo "R$20,00";
+	$um = './/images/pix.png';
+	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
+	$pix = "00020126580014BR.GOV.BCB.PIX0136d69cbf27-a399-454d-90a9-10a899904966520400005303986540520.005802BR5921Rafael Pereira da Paz6009SAO PAULO61080540900062250521SC4bxBYtLmIhK0x18ywcg6304E4EA";
+	
+}
+if ($servico == 2){
+	echo "R$30,00";
+	$um = './/images/pix30.png';
+	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
+	$pix = "00020126580014BR.GOV.BCB.PIX0136d69cbf27-a399-454d-90a9-10a899904966520400005303986540530.005802BR5921Rafael Pereira da Paz6009SAO PAULO61080540900062250521jufL6Z1nnEc234D18ywcg63043C34";
+	
+}
+if ($servico == 3){
+	echo "R$20,00";
+	$um = './/images/pix.png';
+	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
+	
+}
+if ($servico == 4){
+	echo "R$20,00";
+	$um = './/images/pix.png';
+	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
+	
+}
+if ($servico == 5){
+	echo "R$20,00";
+	$um = './/images/pix.png';
+	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
+	
+}
+if ($servico == 6){
+	echo "R$20,00";
+	$um = './/images/pix.png';
+	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
+	
+}
+if ($servico == 7){
+	echo "R$20,00";
+	$um = './/images/pix.png';
+	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
+	
+}
+if ($servico == 8){
+	echo "R$20,00";
+	$um = './/images/pix.png';
+	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
+	
+}
+if ($servico == 9){
+	echo "R$20,00";
+	$um = './/images/pix.png';
+	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
+	
+}
+if ($servico == 10){
+	echo "R$20,00";
+	$um = './/images/pix.png';
+	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
+	
+}
+if ($servico == 11){
+	echo "R$20,00";
+	$um = './/images/pix.png';
+	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
+	$pix = "00020126580014BR.GOV.BCB.PIX0136d69cbf27-a399-454d-90a9-10a899904966520400005303986540530.005802BR5921Rafael Pereira da Paz6009SAO PAULO61080540900062250521jufL6Z1nnEc234D18ywcg63043C34";
+	
+}
+?>
+<br>
                             
-                            <button onclick="copiarTexto()"  class="button fit primary">Copiar código</button>
+                            <button onclick="copiarTexto()"  class="button fit primary">Copiar código <i class="fa-solid fa-copy fa-beat"></i></button>
   
   <script>
     function copiarTexto() {
-      const texto = "00020126580014BR.GOV.BCB.PIX0136d69cbf27-a399-454d-90a9-10a899904966520400005303986540520.005802BR5921Rafael Pereira da Paz6009SAO PAULO61080540900062250521SC4bxBYtLmIhK0x18ywcg6304E4EA";
+      const texto = "<?php echo $pix; ?>";
 
       // Cria um elemento <textarea> temporário
       const textareaTemp = document.createElement("textarea");
@@ -122,19 +207,19 @@ Abra o app em que vai fazer a transferência, escaneie a imagem ou cole o códig
 				
 
 				<!-- CTA -->
-					<section id="cta" class="wrapper style5">
+				<section id="cta" class="wrapper style5">
 						<div class="inner">
 							<header>
 								<h2>Faça-nos uma visita!</h2>
 								<p>Você merece um tratamento especial, reserve agora mesmo o seu horário.</p>
 							</header>
 							<ul class="actions stacked">
-								<li><a href="#" class="button fit primary">AGENDAMENTO</a></li>
-								<li><a href="#" class="button fit">CONTATO</a></li>
+							<li><a href="agendamento.php" class="button fit primary">AGENDAMENTO</a></li>
+								<li><a href="https://api.whatsapp.com/send?phone=5575992845592&text=Tem%20hor%C3%A1rio%20disponivel?" class="button fit">CONTATO</a></li>
 							</ul>
 						</div>
 						<div class="maps container">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d243.70127518504273!2d-38.93600925718598!3d-12.233350640390569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDEzJzYwLjAiUyAzOMKwNTYnMDkuOCJX!5e0!3m2!1spt-BR!2sbr!4v1682121998812!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2528.3250209654498!2d-38.93612629239332!3d-12.23404091330265!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x714392931d59897%3A0x24f8fde83bef7b38!2sBarbaman!5e0!3m2!1spt-BR!2sbr!4v1684929447255!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 						</div>
 					</section>
 
@@ -142,12 +227,12 @@ Abra o app em que vai fazer a transferência, escaneie a imagem ou cole o códig
 					<footer id="footer">
 						<ul class="icons">
 							
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							
 							<li><a href="https://www.instagram.com/barbaman17/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+							<li><a href="mailto:junniorssilva92@gmail.com?subject=Barba Man&body=" target="_blank" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
 						<div class="copy">
-							<a href="http://pazwebagencia.com.br"><img src="https://pazwebagencia.com.br/assets/img/whitelogo-removebg-preview.webp" target="_blank" width="8%" alt="Pazweb"></a></div>
+						<a href="http://pazwebagencia.com.br"><img src=".//images/pazweb.webp" target="_blank" width="8%" alt="Pazweb"></a></div>
 						
 					</footer>
 
