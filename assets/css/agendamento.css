@@ -3851,9 +3851,6 @@ input, select, textarea {
 		
 	}
 	@media (max-width: 10000px) {
-		body.is-mobile.landing #banner,
-	body.is-mobile.landing .wrapper.style4 {
-		   display: inline-table;}
 		   .major img {
 			
 			height: 108%!important;
