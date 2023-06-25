@@ -258,6 +258,7 @@ while ($user_data = mysqli_fetch_assoc($result)) {
       <th scope="col">Senha</th>
       <th scope="col">Email</th>
       <th scope="col">Telefone</th>
+      <th scope="col">Vip</th>
       <th scope="col">...</th>
     </tr>
   </thead>
@@ -270,6 +271,7 @@ while ($user_data = mysqli_fetch_assoc($result)) {
                 echo "<td>". $user_data['senha']. "</td>";
                 echo "<td>". $user_data['email']. "</td>";
                 echo "<td>". $user_data['telefone']. "</td>";
+                echo "<td>". $user_data['vip']. "</td>";
                 echo "<td>
                 <a class='btn btn-primary btn-sm' href='edit.php?id=$user_data[id]'>
                 <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>

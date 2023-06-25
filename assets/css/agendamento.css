@@ -3850,13 +3850,7 @@ input, select, textarea {
 		
 		
 	}
-	@media (max-width: 10000px) {
-		   .major img {
-			
-			height: 108%!important;
-			
-		}
-	}
+	
 
 	.style5{
 		background: #000!important;

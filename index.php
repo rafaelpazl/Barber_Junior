@@ -23,6 +23,19 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FF301CNRNC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FF301CNRNC');
+</script>
   </head>
 
   <style>a{
@@ -241,6 +254,57 @@ input[type="radio"] {
 #item-3:checked ~ .player #test {
   transform: translateY(-80px);
 }
+.precing{
+	font-family: Montserrat, sans-serif!important;
+	
+	
+}
+.cabelo{
+	border-radius: 15px;
+	margin: 5px;
+	height: 50%;
+	background: #340f0a;
+}
+.cabelo p{
+	padding-bottom:0%;
+	
+}
+hr {
+  height: 1px;
+  border: 0;
+  color: #d2d2d2;
+  background-color: #d2d2d2;
+}
+.cabelo span{
+	font-size: 60%;
+}
+.cabelo h2{
+	font-size: 345%;
+}
+.cabelo h4{
+	padding: 3%;
+}
+.cabelo button{
+	color: #4D1811!important;
+	font-weight: 700;
+	background: #fff!important;
+	margin-bottom: 3%;
+}
+.cabelo button:hover{
+	background: #ffffff80!important;
+}
+.barba{
+	height: 50%;
+	background: #fff;
+
+
+}
+header p{
+	color: #fff!important;
+}
+.precing .row{
+	justify-content: center;
+}
 </style>
 	<body class="landing is-preload">	
 			<div id="page-wrapper">
@@ -296,7 +360,7 @@ input[type="radio"] {
 									<div class="row">
 										<div class="col-md-8 two2">
 											
-											<div class="row"><div class="col-12"><h2>Pensando em você</h2><p> utilizamos um sistema de agendamento online para facilitar a marcação de horários e evitar esperas.</p></div></div>
+											<div class="row"><div class="col-12"><h2>Pensando em você</h2><p> Utilizamos um sistema de agendamento online para facilitar a marcação de horários e evitar esperas.</p></div></div>
 											<div class="imgsection3"><img src="images/logoclean.png" alt="Barba Man"></div>
 								</div>
 										<div class="col-md-4 imgsection2"><img src="images/pc.png" alt="Júnior Silva"></div>
@@ -343,7 +407,57 @@ input[type="radio"] {
 						</div>
 					</section>
 
-				
+					<section id="one" class="wrapper style1 special">
+						
+							<header class="precing">							
+						
+								<div class="row">
+								<p>Nunca se preocupe com o seu visual novamente! Com nossas assinaturas mensais de cortes de cabelo, você estará sempre impecável, independentemente da ocasião.</p>
+									<div class="col-sm-4 cabelo"><h4 class="card-title">cabelo</h4>
+
+
+<h2><span>R$</span>70,00</h2>
+
+<p class="text">4 vezes por mês <i class="fa-regular fa-circle-check fa-fade"></i></p>
+<hr>
+<p class="text">Mais de 10% de desconto <i class="fa-regular fa-circle-check fa-fade"></i></p>
+<hr>
+<p class="text">Sempre alinhado no padrão Barbaman <i class="fa-regular fa-circle-check fa-fade"></i></p>
+<hr>
+<div>
+<form method="get" action="pagamento.php">
+<input type="hidden" name="servico" id="servico" value="12">
+  <button class="button btn">Assinar</button>
+</form>
+
+									</div>
+									
+							</div>
+							<div class="col-sm-4 cabelo"><h4 class="card-title">cabelo + barba</h4>
+
+
+<h2><span>R$</span>120,00</h2>
+
+<p class="text">4 vezes por mês <i class="fa-regular fa-circle-check fa-fade"></i></p>
+<hr>
+<p class="text">Mais de 10% de desconto <i class="fa-regular fa-circle-check fa-fade"></i></p>
+<hr>
+<p class="text">Sempre alinhado no padrão Barbaman <i class="fa-regular fa-circle-check fa-fade"></i></p>
+<hr>
+<div>
+<form method="get" action="pagamento.php">
+<input type="hidden" name="servico" id="servico" value="13">
+  <button class="button btn">Assinar</button>
+</form>
+
+									</div>
+									
+							</div>
+						</div>
+						
+
+						</header>
+					</section>
 
 				<!-- CTA -->
 					<section id="cta" class="wrapper style4">

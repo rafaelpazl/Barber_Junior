@@ -24,6 +24,15 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FF301CNRNC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FF301CNRNC');
+</script>
   </head>
 	<style>
 	a{
@@ -38,11 +47,11 @@
     align-items: center;
     align-content: center;
     flex-direction: column;
-    padding: 5%;
+    padding: 1%;
                     }
                     .major img{
                         display: flex;
-						margin: 2% 0;
+						margin: 1% 0;
 						width: 50%;
 
                     }
@@ -60,6 +69,9 @@
 .banner {
 	all: unset;
 }}
+.major img{
+	max-width: 300px;
+}
                         </style>
 	<body class="landing is-preload">	
 			<div id="page-wrapper">
@@ -91,6 +103,7 @@
 						
                            
                             <?php
+							
 if ($servico == 1){
 	echo "R$20,00";
 	$um = './/images/pix.png';
@@ -160,6 +173,20 @@ if ($servico == 11){
 	$pix = "00020126580014BR.GOV.BCB.PIX0136d69cbf27-a399-454d-90a9-10a899904966520400005303986540530.005802BR5921Rafael Pereira da Paz6009SAO PAULO61080540900062250521jufL6Z1nnEc234D18ywcg63043C34";
 	
 }
+if ($servico == 12){
+	echo "R$70,00";
+	$um = './/images/pix.png';
+	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
+	$pix = "00020126580014BR.GOV.BCB.PIX0136d69cbf27-a399-454d-90a9-10a899904966520400005303986540530.005802BR5921Rafael Pereira da Paz6009SAO PAULO61080540900062250521jufL6Z1nnEc234D18ywcg63043C34";
+	
+}
+if ($servico == 13){
+	echo "R$120,00";
+	$um = './/images/pix.png';
+	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
+	$pix = "00020126580014BR.GOV.BCB.PIX0136d69cbf27-a399-454d-90a9-10a899904966520400005303986540530.005802BR5921Rafael Pereira da Paz6009SAO PAULO61080540900062250521jufL6Z1nnEc234D18ywcg63043C34";
+	
+}
 ?>
 <br>
                             
@@ -193,9 +220,10 @@ if ($servico == 11){
   </script>
   <br>
   <P>Envie o comprovante para (75)99284-5592</P>
-  <a href="https://api.whatsapp.com/send?phone=5575992845592&text=Comprovante?" class="button fit">ENVIAR</a>
-  <br>
+  <a href="https://api.whatsapp.com/send?phone=5575992845592&text=Comprovante" class="button fit">ENVIAR</a>
+  <br> 
   <p>Após a confirmação do pagamento seu horário será confirmado!</p>
+  <a href="sistemausuario.php" class="button fit primary">Meus horários</a>
 							</header>
 							
 						</div>
