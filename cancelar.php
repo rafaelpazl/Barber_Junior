@@ -14,6 +14,8 @@ $conn = mysqli_connect('us-cdbr-east-06.cleardb.net', 'b5cb88ee843bc5', 'daa1987
 $sql = "UPDATE horarios SET reservado = 0 WHERE date_hora = '$hora'";
 mysqli_query($conn, $sql);
 $sql = "UPDATE horarios SET email = '' WHERE date_hora = '$hora'";
+mysqli_query($conn, $sql);
+$sql = "UPDATE horarios SET servico = 0 WHERE date_hora = '$hora'";
 mysqli_query($conn, $sql);}
 
 // Desconectar do banco de dados
