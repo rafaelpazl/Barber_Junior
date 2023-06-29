@@ -426,7 +426,7 @@ header p{
 <hr>
 <div>
 <form method="get" action="pagamento.php">
-<input type="hidden" name="servico" id="servico" value="12">
+<input type="hidden" name="servico" id="servico" value="13">
   <button class="button btn">Assinar</button>
 </form>
 
@@ -446,7 +446,7 @@ header p{
 <hr>
 <div>
 <form method="get" action="pagamento.php">
-<input type="hidden" name="servico" id="servico" value="13">
+<input type="hidden" name="servico" id="servico" value="14">
   <button class="button btn">Assinar</button>
 </form>
 

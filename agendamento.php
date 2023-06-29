@@ -178,15 +178,15 @@
         <option value="1">cabelo</option>
         <option value="2">cabelo + tesoura</option>
         <option value="3">cabelo + barba + sobrancelhas</option>
-		<option value="3">cabelo + tesoura + barba + sobrancelhas</option>
-        <option value="4">cabelo + pigmentação</option>
-        <option value="5">cabelo + barba + pigmentação</option>
-        <option value="6">barba + pigmentação</option>
-        <option value="7">barba</option>
-        <option value="8">Sobrancelhas</option>
-        <option value="9">Platinado</option>
-		<option value="10">Luzes</option>
-		<option value="11">Reflexo</option>
+		<option value="4">cabelo + tesoura + barba + sobrancelhas</option>
+        <option value="5">cabelo + pigmentação</option>
+        <option value="6">cabelo + barba + pigmentação</option>
+        <option value="7">barba + pigmentação</option>
+        <option value="8">barba</option>
+        <option value="9">Sobrancelhas</option>
+        <option value="10">Platinado</option>
+		<option value="11">Luzes</option>
+		<option value="12">Reflexo</option>
     </select>
     <br>
    <label for="hora">Horarios disponíveis</label>
