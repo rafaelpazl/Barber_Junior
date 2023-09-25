@@ -4,6 +4,7 @@
 
 <html>
 	<head>
+	<html lang="pt-br">
 		<title>BarbaMan</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -123,14 +124,14 @@ a{
 	<body class="landing is-preload">	
 			<div id="page-wrapper">
 				<header id="header" class="alt">
-						<h1><a href="index.html">BARBAMAN</a></h1>
+						<h1><a href="https://www.barbaman.com.br/">BARBAMAN</a></h1>
 						<nav id="nav">
 							<ul>
 								<li class="special">
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-										<li><a href="index.php">Home</a></li>
+										<li><a href="https://www.barbaman.com.br/">Home</a></li>
 											<li><a href="agendamento.php">Agendamento</a></li>
 											<li><a href="cadastro.php">Cadastrar-se</a></li>
 											<li><a href="login.php">Entrar</a></li>

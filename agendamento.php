@@ -16,6 +16,7 @@
 
 <html>
 	<head>
+	<html lang="pt-br">
 		<title>BarbaMan</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -23,6 +24,7 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+		<script src="script.js" defer></script>
   </head>
 	<style>
 		.editbtn{
@@ -80,14 +82,14 @@
 	<body class="landing is-preload">	
 			<div id="page-wrapper">
 				<header id="header" class="alt">
-						<h1><a href="index.html">BARBAMAN</a></h1>
+						<h1><a href="https://www.barbaman.com.br/">BARBAMAN</a></h1>
 						<nav id="nav">
 							<ul>
 								<li class="special">
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-										<li><a href="index.php">Home</a></li>
+										<li><a href="https://www.barbaman.com.br/">Home</a></li>
 											<li><a href="agendamento.php">Agendamento</a></li>
 											<li><a href="cadastro.php">Cadastrar-se</a></li>
 											<li><a href="login.php">Entrar</a></li>
@@ -172,18 +174,18 @@
 </form>
 
 							<form method="post" action="agendar.php">
-							<label for="servico">Selecione:</label>
+							<label for="servico">Serviço:</label>
     <select name="servico" id="servico">
 		
-        <option value="1">cabelo</option>
-        <option value="2">cabelo + tesoura</option>
-        <option value="3">cabelo + barba + sobrancelhas</option>
-		<option value="4">cabelo + tesoura + barba + sobrancelhas</option>
-        <option value="5">cabelo + pigmentação</option>
-        <option value="6">cabelo + barba + pigmentação</option>
-        <option value="7">barba + pigmentação</option>
-        <option value="8">barba</option>
-        <option value="9">Sobrancelhas</option>
+        <option value="1">Corte máquina</option>
+        <option value="2">Máquina + tesoura</option>
+        <option value="3">Máquina + barba + sobrancelhas</option>
+		<option value="4">Máquina + tesoura + barba + sobrancelhas</option>
+        <option value="5">Pigmentação</option>
+        <option value="6">Corte tesoura</option>
+        <option value="7">Pezinho cabelo ou sobrancelha</option>
+        <option value="8">Somente barba</option>
+        <option value="9">Pezinho barba + sobrancelha</option>
         <option value="10">Platinado</option>
 		<option value="11">Luzes</option>
 		<option value="12">Reflexo</option>
@@ -196,8 +198,7 @@
    <br>
    <input type="text" value="$logado" name="logado" hidden>
    
-   <input type="submit" class="button fit primary editbtn" value="Agendar">
-   
+   <input type="submit" class="button fit primary editbtn" value="Agendar">   
  </form>
 								
 							</header>

@@ -16,7 +16,8 @@
 
 <html>
 	<head>
-		<title>BarbaMan</title>
+	<html lang="pt-br">
+		<title>Barbaman. Descubra a Melhor Barbearia em Feira de Santana para Homens</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/style.css" />
@@ -49,7 +50,7 @@
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-											<li><a href="index.php">Home</a></li>
+											<li><a href="https://www.barbaman.com.br/">Home</a></li>
 											<li><a href="agendamento.php">Agendamento</a></li>
 											<li><a href="cadastro.php">Cadastrar-se</a></li>
 											<li><a href="login.php">Entrar</a></li>

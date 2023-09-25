@@ -1,4 +1,19 @@
 <?php
+
+// Conectar ao banco de dados
+$conn = mysqli_connect('us-cdbr-east-06.cleardb.net', 'b5cb88ee843bc5', 'daa1987b', 'heroku_0619edf52a077e1');
+
+// Definir a data atual
+$data_atual = date('Y-m-d H:i:s');
+
+// Executar a consulta SQL DELETE para excluir horários de dias anteriores
+$sql = "DELETE FROM horarios WHERE date_hora < '$data_atual'";
+mysqli_query($conn, $sql);
+
+// Desconectar do banco de dados
+mysqli_close($conn);
+
+echo "Os horários foram deletados com sucesso!";
 // Conectar ao banco de dados
 $conn = mysqli_connect('us-cdbr-east-06.cleardb.net', 'b5cb88ee843bc5', 'daa1987b', 'heroku_0619edf52a077e1');
 
@@ -11,16 +26,16 @@ if (!$conn) {
 $data_atual = date('Y-m-d');
 
 // Definir o intervalo de dias para gerar horários (7 dias)
-$intervalo_dias = 7;
+$intervalo_dias = 15;
 
 // Definir os horários de acordo com cada dia da semana
 $horarios = array(
-    'tuesday' => array('07:30','08:00','08:30','09:00','09:30','10:00','10:30', '14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'),
-    'wednesday' => array('07:30','08:00','08:30','09:00','09:30','10:00','10:30', '14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'),
-    'thursday' => array('07:30','08:00','08:30','09:00','09:30','10:00','10:30', '13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30','20:00','20:30'),
-    'friday' => array('07:30','08:00','08:30','09:00','09:30','10:00','10:30', '13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30','20:00','20:30'),
-    'saturday' => array('07:00', '07:30','08:00','08:30','09:00','09:30','10:00','10:30', '13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30'),
-    'sunday' => array('08:30','09:00','09:30','10:00','10:30', '13:00','13:30','14:00')
+    'tuesday' => array('07:30','08:00','09:00','10:00','11:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'),
+    'wednesday' => array('07:30','08:00','09:00','10:00','11:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'),
+    'thursday' => array('07:30','08:00','09:00','10:00','11:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'),
+    'friday' => array('07:30','08:00','09:00','10:00','11:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'),
+    'saturday' => array('07:00','07:30','08:00','09:00','10:00','11:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'),
+    'sunday' => array('08:00','09:00','10:00','11:00','12:00','13:00','14:00')
 );
 
 // Gerar os horários de acordo com os dias da semana
@@ -53,5 +68,5 @@ if (mysqli_error($conn)) {
 
 // Desconectar do banco de dados
 mysqli_close($conn);
-
+echo "Os horários foram criados com sucesso!";
 ?>

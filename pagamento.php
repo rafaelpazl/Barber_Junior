@@ -76,14 +76,14 @@
 	<body class="landing is-preload">	
 			<div id="page-wrapper">
 			<header id="header" class="alt">
-						<h1><a href="index.html">BARBAMAN</a></h1>
+						<h1><a href="https://www.barbaman.com.br/">BARBAMAN</a></h1>
 						<nav id="nav">
 							<ul>
 								<li class="special">
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-										<li><a href="index.php">Home</a></li>
+										<li><a href="https://www.barbaman.com.br/">Home</a></li>
 											<li><a href="agendamento.php">Agendamento</a></li>
 											<li><a href="cadastro.php">Cadastrar-se</a></li>
 											<li><a href="login.php">Entrar</a></li>
@@ -105,93 +105,93 @@
                             <?php
 							
 if ($servico == 1){
-	echo "R$20,00";
+	echo "R$19,90";
 	$um = './/images/pix.png';
 	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
-	$pix = "00020126580014BR.GOV.BCB.PIX0136d69cbf27-a399-454d-90a9-10a899904966520400005303986540520.005802BR5921Rafael Pereira da Paz6009SAO PAULO61080540900062250521SC4bxBYtLmIhK0x18ywcg6304E4EA";
+	$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
 	
 }
 if ($servico == 2){
-	echo "R$30,00";
+	echo "R$24,90";
 	$um = './/images/pix.png';
 	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
-	$pix = "00020126580014BR.GOV.BCB.PIX0136d69cbf27-a399-454d-90a9-10a899904966520400005303986540530.005802BR5921Rafael Pereira da Paz6009SAO PAULO61080540900062250521jufL6Z1nnEc234D18ywcg63043C34";
+	$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
 	
 }
 if ($servico == 3){
-	echo "R$35,00";
+	echo "R$34,90";
 	$um = './/images/pix.png';
 	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
-	
+	$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
 }
 if ($servico == 4){
-	echo "R$40,00";
+	echo "R$39,90";
 	$um = './/images/pix.png';
 	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
-	
+	$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
 }
 if ($servico == 5){
-	echo "R$50,00";
+	echo "R$19,90";
 	$um = './/images/pix.png';
 	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
-	
+	$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
 }
 if ($servico == 6){
-	echo "R$50,00";
+	echo "R$49,90";
 	$um = './/images/pix.png';
 	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
-	
+	$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
 }
 if ($servico == 7){
-	echo "R$35,00";
+	echo "R$9,90";
 	$um = './/images/pix.png';
 	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
-	
+	$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
 }
 if ($servico == 8){
-	echo "R$15,00";
+	echo "R$14,90";
 	$um = './/images/pix.png';
 	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
-	
+	$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
 }
 if ($servico == 9){
-	echo "R$12,00";
+	echo "R$14,90";
 	$um = './/images/pix.png';
 	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
-	
+	$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
 }
 if ($servico == 10){
-	echo "R$80,00";
+	echo "R$69,90";
 	$um = './/images/pix.png';
 	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
-	
+	$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
 }
 if ($servico == 11){
-	echo "R$60,00";
+	echo "R$49,90";
 	$um = './/images/pix.png';
 	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
-	$pix = "00020126580014BR.GOV.BCB.PIX0136d69cbf27-a399-454d-90a9-10a899904966520400005303986540530.005802BR5921Rafael Pereira da Paz6009SAO PAULO61080540900062250521jufL6Z1nnEc234D18ywcg63043C34";
+	$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
 	
 }
 if ($servico == 12){
-	echo "R$75,00";
+	echo "R$69,90";
 	$um = './/images/pix.png';
 	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
-	$pix = "00020126580014BR.GOV.BCB.PIX0136d69cbf27-a399-454d-90a9-10a899904966520400005303986540530.005802BR5921Rafael Pereira da Paz6009SAO PAULO61080540900062250521jufL6Z1nnEc234D18ywcg63043C34";
+	$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
 	
 }
 if ($servico == 13){
-	echo "R$70,00";
+	echo "R$89,90";
 	$um = './/images/pix.png';
 	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
-	$pix = "00020126580014BR.GOV.BCB.PIX0136d69cbf27-a399-454d-90a9-10a899904966520400005303986540530.005802BR5921Rafael Pereira da Paz6009SAO PAULO61080540900062250521jufL6Z1nnEc234D18ywcg63043C34";
+	$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
 	
 }
 if ($servico == 14){
-	echo "R$120,00";
+	echo "R$129,90";
 	$um = './/images/pix.png';
 	echo '<img src="' . $um . '" alt="QRcode" width="50%">';
-	$pix = "00020126580014BR.GOV.BCB.PIX0136d69cbf27-a399-454d-90a9-10a899904966520400005303986540530.005802BR5921Rafael Pereira da Paz6009SAO PAULO61080540900062250521jufL6Z1nnEc234D18ywcg63043C34";
+	$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
 	
 }
 ?>

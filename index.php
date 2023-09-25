@@ -14,29 +14,34 @@
 <!DOCTYPE HTML>
 
 <html>
-	<head>
-		<title>BarbaMan</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name=”description” content=”Somos ">
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FF301CNRNC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<head>
+	<html lang="pt">
+	<title>Barbaman - Melhor Barbearia em Feira de Santana</title>
+	<meta charset="utf-8" />
+	<link rel="canonical" href="https://www.barbaman.com.br">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Descubra cortes e estilos de barba populares para homens modernos na melhor barbearia de Feira de Santana. Agende seu serviço e garanta um corte impecável!">
+	<meta name="author" content="Pazweb">
+	<meta name="keywords" content="Barbaman, barbearia, Feira de Santana, corte, masculino">
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-FF301CNRNC"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-  gtag('config', 'G-FF301CNRNC');
-</script>
-  </head>
+		gtag('config', 'G-FF301CNRNC');
+	</script>
+</head>
+
 
   <style>a{
 			text-decoration: none!important;
@@ -281,7 +286,7 @@ hr {
 .cabelo h2{
 	font-size: 345%;
 }
-.cabelo h4{
+.cabelo h3{
 	padding: 3%;
 }
 .cabelo button{
@@ -305,18 +310,64 @@ header p{
 .precing .row{
 	justify-content: center;
 }
+header .barbaman{
+color: #fff;
+		font-weight: 800;
+		letter-spacing: 0.225em;
+		line-height: 1em;
+		margin: 0 0 1em 0;
+		text-transform: uppercase;
+}
+header .barbaman a {
+	color: inherit;
+			text-decoration: none;
+}
+#header .barbaman {
+			-moz-transition: opacity 0.2s ease;
+			-webkit-transition: opacity 0.2s ease;
+			-ms-transition: opacity 0.2s ease;
+			transition: opacity 0.2s ease;
+			height: inherit;
+			left: 1.25em;
+			line-height: inherit;
+			position: absolute;
+			top: 0;
+		}
+		#header .barbaman a {
+				border: 0;
+				display: block;
+				height: inherit;
+				line-height: inherit;
+				color: #fff;
+			}
+			@media screen and (max-width: 736px) {
+
+#header .barbaman a {
+	font-size: 0.8em;
+}
+#header.alt .barbaman {
+				pointer-events: none;
+				opacity: 0;
+			}
+
+}
+@media screen and (max-width: 500px) {
+.maps {
+	height: 50%!important;
+}
+}
 </style>
 	<body class="landing is-preload">	
 			<div id="page-wrapper">
 				<header id="header" class="alt">
-						<h1><a href="index.html">BarbaMan</a></h1>
+						<span class="barbaman"><a href="https://www.https://www.barbaman.com.br//">BarbaMan</a></span>
 						<nav id="nav">
 							<ul>
 								<li class="special">
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-											<li><a href="index.html">Home</a></li>
+											<li><a href="https://www.barbaman.com.br/">Home</a></li>
 											<li><a href="agendamento.php">Agendamento</a></li>
 											<li><a href="cadastro.php">Cadastrar-se</a></li>
 											<li><a href="login.php">Entrar</a></li>
@@ -330,10 +381,10 @@ header p{
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
-							<h2>BarbaMan</h2>
+							<h2>Barbaman</h2>
 							<p>Corte de cabelo com alta qualidade para homens que exigem o melhor</p>
 							<ul class="actions special">
-								<li><a href="agendamento.php" class="button primary">Marcar horario</a></li>
+								<li><a href="agendamento.php" class="button primary">Marcar horário</a></li>
 							</ul>
 						</div>
 						<a href="#one" class="more scrolly">Saiba mais</a>
@@ -343,8 +394,8 @@ header p{
 					<section id="one" class="wrapper style1 special">
 						<div class="inner">
 							<header class="major">
-								<h2>Nós nos dedicamos a transformar a sua aparência e fazer você se sentir confiante.</h2>
-								<p>Nosso compromisso é proporcionar a você um serviço excepcional e um atendimento personalizado.</p>
+								<h1>Nós da <strong>Barbaman</strong> nos dedicamos a transformar a sua aparência e fazer você se sentir confiante.</h1>
+								<p>Nosso compromisso é proporcionar a você um <strong>serviço excepcional</strong> e um <strong>atendimento personalizado</strong>.</p>
 							</header>
 							<ul class="icons major">
 								<li><span class="ico"><span class="label"><img src="images/ico1.png" alt="tesoura para cabelo"></span></li>
@@ -361,7 +412,7 @@ header p{
 										<div class="col-md-8 two2">
 											
 											<div class="row"><div class="col-12"><h2>Pensando em você</h2><p> Utilizamos um sistema de agendamento online para facilitar a marcação de horários e evitar esperas.</p></div></div>
-											<div class="imgsection3"><img src="images/logoclean.png" alt="Barba Man"></div>
+											<div class="imgsection3"><img src="images/logoclean.png" alt="Barbaman"></div>
 								</div>
 										<div class="col-md-4 imgsection2"><img src="images/pc.png" alt="Júnior Silva"></div>
 									</div>
@@ -384,13 +435,13 @@ header p{
         <input type="radio" name="slider" id="item-3">
       <div class="cards">
         <label class="card" for="item-1" id="song-1">
-          <img src="images/corte1.jpg" alt="song">
+          <img src="images/corte1.jpg" alt="degradê e barba">
         </label>
         <label class="card" for="item-2" id="song-2">
-          <img src="images/corte2.jpg" alt="song">
+          <img src="images/corte2.jpg" alt="degradê">
         </label>
         <label class="card" for="item-3" id="song-3">
-          <img src="images/corte3.jpg" alt="song">
+          <img src="images/corte3.jpg" alt="platinado">
         </label>
        
       </div>
@@ -412,17 +463,17 @@ header p{
 							<header class="precing">							
 						
 								<div class="row">
-								<p>Nunca se preocupe com o seu visual novamente! Com nossas assinaturas mensais de cortes de cabelo, você estará sempre impecável, independentemente da ocasião.</p>
-									<div class="col-sm-4 cabelo"><h4 class="card-title">cabelo</h4>
+								<p><strong>Nunca se preocupe com o seu visual novamente!</strong> Com nossas assinaturas mensais de cortes de cabelo, você estará sempre impecável, independentemente da ocasião.</p>
+									<div class="col-sm-4 cabelo"><h3 class="card-title">cabelo</h3>
 
 
-<h2><span>R$</span>70,00</h2>
+<h2><span>R$</span>69,90</h2>
 
 <p class="text">4 vezes por mês <i class="fa-regular fa-circle-check fa-fade"></i></p>
 <hr>
 <p class="text">Mais de 10% de desconto <i class="fa-regular fa-circle-check fa-fade"></i></p>
 <hr>
-<p class="text">Sempre alinhado no padrão Barbaman <i class="fa-regular fa-circle-check fa-fade"></i></p>
+<p class="text">Sempre alinhado no padrão <strong>Barbaman</strong> <i class="fa-regular fa-circle-check fa-fade"></i></p>
 <hr>
 <div>
 <form method="get" action="pagamento.php">
@@ -433,16 +484,16 @@ header p{
 									</div>
 									
 							</div>
-							<div class="col-sm-4 cabelo"><h4 class="card-title">cabelo + barba</h4>
+							<div class="col-sm-4 cabelo"><h3 class="card-title">cabelo + barba</h3>
 
 
-<h2><span>R$</span>120,00</h2>
+<h2><span>R$</span>119,90</h2>
 
 <p class="text">4 vezes por mês <i class="fa-regular fa-circle-check fa-fade"></i></p>
 <hr>
 <p class="text">Mais de 10% de desconto <i class="fa-regular fa-circle-check fa-fade"></i></p>
 <hr>
-<p class="text">Sempre alinhado no padrão Barbaman <i class="fa-regular fa-circle-check fa-fade"></i></p>
+<p class="text">Sempre alinhado no padrão <strong>Barbaman</strong> <i class="fa-regular fa-circle-check fa-fade"></i></p>
 <hr>
 <div>
 <form method="get" action="pagamento.php">

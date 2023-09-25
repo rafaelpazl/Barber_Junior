@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
 
     if (mysqli_num_rows($result) > 0) {
         // O email ou telefone já estão cadastrados
-        echo '<script>alert("O email ou telefone já estão cadastrados anteriormente.");</script>';
+        echo '<script>alert("Email ou telefone já cadastrados.");</script>';
     } else {
         // Inserir novo usuário no banco de dados
         $query = "INSERT INTO usuarios (nome, email, senha, telefone) VALUES ('$nome', '$email', '$senha', '$telefone')";
@@ -30,6 +30,7 @@ if (isset($_POST['submit'])) {
 
 <html>
 	<head>
+	<html lang="pt-br">
 		<title>BarbaMan</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -45,18 +46,27 @@ if (isset($_POST['submit'])) {
 			text-decoration: none!important;
 			border: none!important;
 		}		
+		.wrapper.style1 input[type="text"],
+			.wrapper.style1 input[type="password"],
+			.wrapper.style1 input[type="email"],
+			.wrapper.style1 input[type="tel"],
+			.wrapper.style1 select,
+			.wrapper.style1 textarea {
+				background-color: #fff!important;
+				color: #000!important;
+			}
 					</style>
 	<body class="landing is-preload">	
 			<div id="page-wrapper">
 				<header id="header" class="alt">
-						<h1><a href="index.php">BARBAMAN</a></h1>
+						<h1><a href="https://www.barbaman.com.br/">BARBAMAN</a></h1>
 						<nav id="nav">
 							<ul>
 								<li class="special">
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-										<li><a href="index.php">Home</a></li>
+										<li><a href="https://www.barbaman.com.br/">Home</a></li>
 											<li><a href="agendamento.php">Agendamento</a></li>
 											<li><a href="cadastro.php">Cadastrar-se</a></li>
 											<li><a href="login.php">Entrar</a></li>
@@ -108,7 +118,7 @@ if (isset($_POST['submit'])) {
                     <label for="telefone" class="labelInput"></label>
                 </div>
                 <br><br>
-                <input type="submit" name="enviar" id="submit">
+                <input type="submit" name="submit" id="submit" value="enviar">
             </fieldset>
         </form>
 								
