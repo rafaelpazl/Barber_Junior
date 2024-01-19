@@ -10,7 +10,7 @@ if ((!isset($_SESSION['email']) == true) and !isset($_SESSION['senha']) == true)
 $logado = $_SESSION['email'];
 
 // Conectar ao banco de dados
-$conn = mysqli_connect('us-cdbr-east-06.cleardb.net', 'b5cb88ee843bc5', 'daa1987b', 'heroku_0619edf52a077e1');
+$conn = $conexao;
 
 // Obter a data e hora selecionada pelo usuário
 $hora = $_POST['hora'];

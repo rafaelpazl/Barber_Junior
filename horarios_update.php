@@ -1,7 +1,8 @@
 <?php
 
 // Conectar ao banco de dados
-$conn = mysqli_connect('us-cdbr-east-06.cleardb.net', 'b5cb88ee843bc5', 'daa1987b', 'heroku_0619edf52a077e1');
+include_once('config.php');
+$conn = $conexao;
 
 // Definir a data atual
 $data_atual = date('Y-m-d H:i:s');
@@ -10,17 +11,7 @@ $data_atual = date('Y-m-d H:i:s');
 $sql = "DELETE FROM horarios WHERE date_hora < '$data_atual'";
 mysqli_query($conn, $sql);
 
-// Desconectar do banco de dados
-mysqli_close($conn);
-
 echo "Os horários foram deletados com sucesso!";
-// Conectar ao banco de dados
-$conn = mysqli_connect('us-cdbr-east-06.cleardb.net', 'b5cb88ee843bc5', 'daa1987b', 'heroku_0619edf52a077e1');
-
-// Verificar a conexão
-if (!$conn) {
-    die("Erro na conexão com o banco de dados: " . mysqli_connect_error());
-}
 
 // Obter a data atual
 $data_atual = date('Y-m-d');
@@ -30,11 +21,11 @@ $intervalo_dias = 15;
 
 // Definir os horários de acordo com cada dia da semana
 $horarios = array(
-    'tuesday' => array('07:30','08:00','09:00','10:00','11:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'),
-    'wednesday' => array('07:30','08:00','09:00','10:00','11:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'),
+    'tuesday' => array('07:30','08:00','09:00','10:00','11:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'),
+    'wednesday' => array('07:30','08:00','09:00','10:00','11:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'),
     'thursday' => array('07:30','08:00','09:00','10:00','11:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'),
     'friday' => array('07:30','08:00','09:00','10:00','11:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'),
-    'saturday' => array('07:00','07:30','08:00','09:00','10:00','11:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'),
+    'saturday' => array('07:00','07:30','08:00','09:00','10:00','11:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00'),
     'sunday' => array('08:00','09:00','10:00','11:00','12:00','13:00','14:00')
 );
 

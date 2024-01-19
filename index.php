@@ -16,7 +16,7 @@
 <html>
 <head>
 	<html lang="pt">
-	<title>Barbaman - Melhor Barbearia em Feira de Santana</title>
+	<title>Barbaman - Barbearia em Feira de Santana</title>
 	<meta charset="utf-8" />
 	<link rel="canonical" href="https://www.barbaman.com.br">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -39,6 +39,8 @@
 		gtag('js', new Date());
 
 		gtag('config', 'G-FF301CNRNC');
+
+		alert("Em dezembro, agendamentos feitos apenas pelo whatsapp!");
 	</script>
 </head>
 

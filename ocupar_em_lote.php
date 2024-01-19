@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
         $horarios_selecionados = $_POST['selecionados'];
 
         // Conectar ao banco de dados
-        $conn = mysqli_connect('us-cdbr-east-06.cleardb.net', 'b5cb88ee843bc5', 'daa1987b', 'heroku_0619edf52a077e1');
+        $conn = $conexao;
 
         // Loop através dos horários selecionados e atualize o banco de dados
         foreach ($horarios_selecionados as $hora) {
@@ -25,6 +25,7 @@ if (isset($_POST['submit'])) {
     } else {
         // Caso nenhum horário tenha sido selecionado
         echo 'Nenhum horário foi selecionado.';
+        header('Location: sistema.php');
         
     }
 }
