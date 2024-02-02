@@ -39,8 +39,6 @@
 		gtag('js', new Date());
 
 		gtag('config', 'G-FF301CNRNC');
-
-		alert("Em dezembro, agendamentos feitos apenas pelo whatsapp!");
 	</script>
 </head>
 
@@ -538,7 +536,7 @@ header .barbaman a {
 							<li><a href="mailto:junniorssilva92@gmail.com?subject=Barba Man&body=" target="_blank" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
 						<div class="copy">
-						<a href="http://pazwebagencia.com.br"><img src=".//images/pazweb.webp" target="_blank" width="8%" alt="Pazweb"></a></div>
+						<a href="https://pazweb.com.br/"><img src=".//images/pazweb.webp" target="_blank" width="8%" alt="Pazweb"></a></div>
 						
 					</footer>
 

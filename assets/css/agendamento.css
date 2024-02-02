@@ -3855,6 +3855,7 @@ input, select, textarea {
 	.style5{
 		background: #000!important;
 		color: #fff!important;
+		padding-top: 5%
 	}
 
 	body.is-mobile.landing #footer {

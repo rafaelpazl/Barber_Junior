@@ -1,0 +1,124 @@
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 10%;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    height: 100%;
+    min-width: 260px;
+}
+
+.inner {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width: 1000px) {
+
+    .wrapper.style1 {
+        width: 1000px;
+        height: 780px;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formlogin {
+        width: 695px;
+        height: 460px;
+    }
+}
+
+.areaLogin img {
+    width: 400px;
+}
+
+.formLogin h1 {
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.formLogin p {
+    display: inline-block;
+    font-size: 80%;
+    color: #000;
+    margin-bottom: 1%;
+}
+
+.formLogin input {
+    padding: 2%;
+    font-size: 80%;
+    border: 1px solid #000;
+    margin-bottom: 5%;
+    margin-top: 1%;
+    border-radius: 4px;
+    transition: all linear 160ms;
+    outline: none;
+}
+
+
+.formLogin input:focus {
+    border: 1px solid #000;
+}
+
+.formLogin label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.formLogin a {
+    display: inline-block;
+    margin-bottom: 5%;
+    font-size: 13px;
+    color: #000;
+    transition: all linear 160ms;
+}
+
+.formLogin a:hover {
+    color: #000;
+}
+
+.pae {
+    color: #000 !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.pae p {
+    color: #000 !important;
+}
+
+.pae label {
+    color: #000 !important;
+}
+
+.pae input {
+    color: #000 !important;
+}
+
+.pae h2 {
+    color: #000 !important;
+}
+
+a {
+    text-decoration: none !important;
+    border: none !important;
+}
+
+@media (max-width: 1000px) {
+    .copy a img {
+        width: 20%;
+    }
+}
+.style5{
+    padding-top: 5%;
+}
+
+p.erro {
+    color: red!important;
+    font-weight: bolder;
+}

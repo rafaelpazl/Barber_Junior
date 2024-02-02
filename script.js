@@ -12,3 +12,24 @@
 			}
 		})
 	})
+
+	const modal = document.querySelector('.modal-container')
+
+function openModal() {
+  modal.classList.add('active')
+}
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    openModal();
+  }, 3000);
+});
+
+function openModal() {
+  var modal = document.querySelector('.modal-container');
+  modal.classList.add('active');
+}
+
+function closeModal() {
+  var modal = document.querySelector('.modal-container');
+  modal.classList.remove('active');
+}

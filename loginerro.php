@@ -13,10 +13,9 @@
 	</noscript>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-	<link href="assets/css/modal.css" rel="stylesheet" />
+	
 	<link href="assets/css/login.css" rel="stylesheet" />
 </head>
-
 <body class="landing is-preload">
 	<div id="page-wrapper">
 		<header id="header" class="alt">
@@ -52,6 +51,10 @@
 									<input type="email" name="email" placeholder="Digite seu e-mail" autofocus="true" required />
 									<label for="password">Senha</label>
 									<input type="password" name="senha" placeholder="Digite sua senha" required />
+
+
+									<p class="erro">usuario e/ou senha incorretos!</p>
+
 
 									<a href="cadastro.php">Criar uma conta</a>
 									<input type="submit" name="submit" value="ENTRAR" class="btn button fit primary" />
@@ -100,23 +103,6 @@
 			</div>
 
 		</footer>
-
-		<div class="modal-container">
-			<div class="ajuste" onclick="closeModal()">
-				<div class="modal">
-					<h5>Nova atualização!</h5>
-					<span>
-						<p>Estamos sempre pensando no bem-estar e conforto dos nossos clientes, chega de preencher longos formulários e cadastre-se mais rápidamente utilizando o <strong>Google</strong>!</p>
-					</span>
-					<img src="images/logoclean.png" alt="Logo barbaman" width="40%">
-					<div class="btns">
-						<button class="btnClose" onclick="closeModal()">Fechar</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End modal -->
-
 		<!-- Scripts -->
 		<script src="script.js"></script>
 		<script src="assets/js/jquery.min.js"></script>

@@ -1,0 +1,95 @@
+ 
+  .modal-container{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    display: none;
+    z-index: 999;
+  }
+  .ajuste{
+    position: absolute;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;  
+    justify-content: center;
+    background-color: #00000096;
+  }
+  
+  .modal {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    height: auto;
+    width: 90%;
+    top: auto;
+    color: #000;
+    
+
+    
+  }
+  .modal p, strong {
+    color: #000!important;
+    text-align: justify;
+  }
+
+  .active {
+    display: flex;
+  }
+  
+  .active .modal {
+    animation: modal .4s;
+  }
+  
+  @keyframes modal {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -60px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+
+  
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    display: none;
+  }
+  
+  .btns button {
+    font-size: medium;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .btnOK {
+   background-color: blue!important;
+  }
+  
+  .btnClose {
+    background-color: brown!important;
+   }
+   
+   /* end of the section product*/
+   .info_container a{
+      margin: 0;
+      padding: 0;
+   }
+     @media (min-width: 600px) {
+       .modal img {
+         width: 20%;
+       }
+      }
