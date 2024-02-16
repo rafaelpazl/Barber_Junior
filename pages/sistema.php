@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once('../assets/php/config.php');
 include_once('../assets/php/verify_user.php');
 
@@ -135,7 +134,7 @@ include_once('../assets/php/verify_user.php');
 
   @media (max-width: 768px) {
     .row.two .col {
-      flex-direction: column;
+      flex-direction: row;
     }
   }
 
@@ -187,7 +186,9 @@ include_once('../assets/php/verify_user.php');
       </div>
     </div>
     <div class="row two">
-      <div class="col"><a href="../assets/php/sair.php"><button>Voltar</button><a>
+      <div class="col"><a href="../index.php"><button>Voltar</button><a>
+            <a href="users.php"><button class='btn btn-light btn-sm'>Ver usuários</button></a>
+            <a href="sistema.php"><button class='btn btn-light btn-sm'>Ver horários</button></a>
             <div class="user">
               <?php
 
@@ -200,6 +201,7 @@ include_once('../assets/php/verify_user.php');
       </div>
     </div>
   </div>
+
   <div class="tabela">
     <form method="post" action="../assets/php/ocupar_em_lote.php">
       <button class='btn btn-danger btn-sm' type="submit" name="submit">Ocupar Horários Selecionados</button>
@@ -208,7 +210,6 @@ include_once('../assets/php/verify_user.php');
         <thead>
           <tr>
             <th scope="col">Horário</th>
-            <th scope="col">Nome</th>
             <th scope="col">Reservado</th>
             <th scope="col">...</th>
           </tr>
@@ -238,7 +239,7 @@ include_once('../assets/php/verify_user.php');
 
             echo "<tr>";
             echo "<td>" . $user_data['date_hora'] . "</td>";
-            echo "<td>" . $nome_usuario . "</td>"; // Substituir pelo nome correspondente
+
             echo "<td>" . $user_data['nome'] . "</td>";
             echo "<td>
         <a class='btn btn-success btn-sm' href='../assets/php/cancelar_admin.php?date_hora=$user_data[date_hora]'>LIVRE</a>
@@ -255,53 +256,14 @@ include_once('../assets/php/verify_user.php');
         </tbody>
       </table>
   </div>
-  <?php
-  $sql = "SELECT * FROM usuarios ORDER BY id DESC";
-  $result = $conexao->query($sql);
-  ?>
-
-
-  <div class="col-md-12">
-    </nav>
-    <div class="tabela">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Nome</th>
-            <th scope="col">Vip</th>
-            <th scope="col">...</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          while ($user_data = mysqli_fetch_assoc($result)) {
-            echo "<tr>";
-            echo "<td>" . $user_data['nome'] . "</td>";
-            echo "<td>" . $user_data['vip'] . "</td>";
-            echo "<td>
-                <a class='btn btn-primary btn-sm' href='edit.php?id=$user_data[id]'>
-                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil-square' viewBox='0 0 16 16'>
-  <path d='M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z'/>
-  <path fill-rule='evenodd' d='M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z'/>
-</svg>
-</a>
-                <a class='btn btn-danger btn-sm' href='../assets/php/delete.php?id=$user_data[id]'>
-                <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
-  <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
-  <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
-</svg>
-</a>
-                 </td>";
-          }
-          ?>
-        </tbody>
-      </table>
-    </div>
 
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 
 </html>

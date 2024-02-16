@@ -4,7 +4,6 @@
     background-color: #fff;
     border-radius: 7px;
     padding: 10%;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
     height: 100%;
     min-width: 260px;
 }
@@ -58,6 +57,7 @@
     border-radius: 4px;
     transition: all linear 160ms;
     outline: none;
+    color: #000;
 }
 
 

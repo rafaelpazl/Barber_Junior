@@ -17,15 +17,17 @@ include_once('assets/php/config.php');
 	<meta name="author" content="Pazweb">
 	<meta name="keywords" content="Barbaman, barbearia, Feira de Santana, corte, masculino">
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<meta property="og:image" content="https://www.barbaman.com.br/images/logoclean.png" />
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-FF301CNRNC"></script>
 	<script>
@@ -40,6 +42,7 @@ include_once('assets/php/config.php');
 	</script>
 </head>
 <link rel="stylesheet" href="assets/css/main2.css">
+
 <body class="landing is-preload">
 	<div id="page-wrapper">
 		<header id="header" class="alt">
@@ -50,9 +53,8 @@ include_once('assets/php/config.php');
 						<a href="#menu" class="menuToggle"><span>Menu</span></a>
 						<div id="menu">
 							<ul>
-								<li><a href="https://www.barbaman.com.br/">Home</a></li>
+								<li><a href="index.php">Home</a></li>
 								<li><a href="pages/agendamento.php">Agendamento</a></li>
-								<li><a href="pages/cadastro.php">Cadastrar-se</a></li>
 								<li><a href="pages/login.php">Entrar</a></li>
 							</ul>
 						</div>
@@ -153,12 +155,12 @@ include_once('assets/php/config.php');
 			<header class="precing">
 
 				<div class="row">
-					<p><strong>Nunca se preocupe com o seu visual novamente!</strong> Com nossas assinaturas mensais de cortes de cabelo, você estará sempre impecável, independentemente da ocasião.</p>
+					<p><strong>Nunca se preocupe com o seu visual novamente!</strong> Com nossas assinaturas mensais e quinzenais de cortes de cabelo, você estará sempre impecável, independentemente da ocasião.</p>
 					<div class="col-md-5 cabelo">
-						<h3 class="card-title">cabelo</h3>
+						<h3 class="card-title">cabelo máquina</h3>
 
 
-						<h2><span>R$</span>69,90</h2>
+						<h2><span>R$</span>99,90</h2>
 
 						<p class="text">4 vezes por mês <i class="fa-regular fa-circle-check fa-fade"></i></p>
 						<hr>
@@ -175,11 +177,11 @@ include_once('assets/php/config.php');
 						</div>
 
 					</div>
-					<div class="col-md-5 cabelo">
-						<h3 class="card-title">cabelo + barba</h3>
+					<div class="col-md-5 cabelo cabelo1">
+						<h3 class="card-title">cabelo tesoura</h3>
 
 
-						<h2><span>R$</span>119,90</h2>
+						<h2><span>R$</span>149,90</h2>
 
 						<p class="text">4 vezes por mês <i class="fa-regular fa-circle-check fa-fade"></i></p>
 						<hr>
@@ -196,7 +198,173 @@ include_once('assets/php/config.php');
 						</div>
 
 					</div>
+					<div class="col-md-5 cabelo">
+						<h3 class="card-title">cabelo + barba </h3>
+
+
+						<h2><span>R$</span>139,90</h2>
+
+						<p class="text">4 vezes por mês <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Mais de 10% de desconto <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Sempre alinhado no padrão <strong>Barbaman</strong> <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<div>
+							<form method="get" action="pages/pagamento.php">
+								<input type="hidden" name="servico" id="servico" value="15">
+								<button class="button btn">Assinar</button>
+							</form>
+
+						</div>
+
+					</div>
+					<div class="col-md-5 cabelo cabelo1">
+						<h3 class="card-title">corte + finalização completa (1x semana) </h3>
+
+
+						<h2><span>R$</span>119,90</h2>
+
+						<p class="text">4 vezes por mês <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Mais de 10% de desconto <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Sempre alinhado no padrão <strong>Barbaman</strong> <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<div>
+							<form method="get" action="pages/pagamento.php">
+								<input type="hidden" name="servico" id="servico" value="16">
+								<button class="button btn">Assinar</button>
+							</form>
+
+						</div>
+
+					</div>
+					<div class="col-md-5 cabelo">
+						<h3 class="card-title">finalização completa</h3>
+
+
+						<h2><span>R$</span>84,90</h2>
+
+						<p class="text">4 vezes por mês <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Mais de 10% de desconto <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Sempre alinhado no padrão <strong>Barbaman</strong> <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<div>
+							<form method="get" action="pages/pagamento.php">
+								<input type="hidden" name="servico" id="servico" value="17">
+								<button class="button btn">Assinar</button>
+							</form>
+
+						</div>
+
+					</div>
+
+					<div class="col-md-5 cabelo cabelo1">
+						<h3 class="card-title">cabelo máquina</h3>
+
+
+						<h2><span>R$</span>59,90</h2>
+
+						<p class="text">2 vezes por mês <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Mais de 10% de desconto <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Sempre alinhado no padrão <strong>Barbaman</strong> <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<div>
+							<form method="get" action="pages/pagamento.php">
+								<input type="hidden" name="servico" id="servico" value="18">
+								<button class="button btn">Assinar</button>
+							</form>
+
+						</div>
+
+					</div>
+					<div class="col-md-5 cabelo">
+						<h3 class="card-title">cabelo tesoura</h3>
+
+
+						<h2><span>R$</span>79,90</h2>
+
+						<p class="text">2 vezes por mês <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Mais de 10% de desconto <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Sempre alinhado no padrão <strong>Barbaman</strong> <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<div>
+							<form method="get" action="pages/pagamento.php">
+								<input type="hidden" name="servico" id="servico" value="19">
+								<button class="button btn">Assinar</button>
+							</form>
+
+						</div>
+					</div>
+					<div class="col-md-5 cabelo cabelo1">
+						<h3 class="card-title">cabelo + barba</h3>
+
+
+						<h2><span>R$</span>74,90</h2>
+
+						<p class="text">2 vezes por mês <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Mais de 10% de desconto <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Sempre alinhado no padrão <strong>Barbaman</strong> <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<div>
+							<form method="get" action="pages/pagamento.php">
+								<input type="hidden" name="servico" id="servico" value="20">
+								<button class="button btn">Assinar</button>
+							</form>
+
+						</div>
+					</div>
+					<div class="col-md-5 cabelo">
+						<h3 class="card-title">corte e finalização completa</h3>
+
+
+						<h2><span>R$</span>69,90</h2>
+
+						<p class="text">2 vezes por mês <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Mais de 10% de desconto <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Sempre alinhado no padrão <strong>Barbaman</strong> <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<div>
+							<form method="get" action="pages/pagamento.php">
+								<input type="hidden" name="servico" id="servico" value="21">
+								<button class="button btn">Assinar</button>
+							</form>
+
+						</div>
+					</div>
+					<div class="col-md-5 cabelo cabelo1">
+						<h3 class="card-title">finalização completa</h3>
+
+
+						<h2><span>R$</span>54,90</h2>
+
+						<p class="text">2 vezes por mês <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Mais de 10% de desconto <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<p class="text">Sempre alinhado no padrão <strong>Barbaman</strong> <i class="fa-regular fa-circle-check fa-fade"></i></p>
+						<hr>
+						<div>
+							<form method="get" action="pages/pagamento.php">
+								<input type="hidden" name="servico" id="servico" value="22">
+								<button class="button btn">Assinar</button>
+							</form>
+
+						</div>
+					</div>
 				</div>
+
 
 
 			</header>

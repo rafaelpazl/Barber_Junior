@@ -6,13 +6,14 @@
 	<title>BarbaMan</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta property="og:image" content="../images/logoclean.png" />
 	<link rel="stylesheet" href="../assets/css/style.css" />
 	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 	<noscript>
 		<link rel="stylesheet" href="../assets/css/noscript.css" />
 	</noscript>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-	<script src="../assets/js/clear_cookies.js"></script>
+
 </head>
 <style>
 	a {
@@ -30,6 +31,16 @@
 		padding: 5%;
 		text-align: justify;
 	}
+
+	.major button {
+		background: #000 !important;
+		border: #000 !important;
+	}
+
+	.major button:hover {
+		background: #0005 !important;
+		transition: 0.4s;
+	}
 </style>
 
 <!DOCTYPE HTML>
@@ -46,7 +57,7 @@
 						<a href="#menu" class="menuToggle"><span>Menu</span></a>
 						<div id="menu">
 							<ul>
-								<li><a href="https://www.barbaman.com.br/">Home</a></li>
+								<li><a href="../index.php">Home</a></li>
 								<li><a href="agendamento.php">Agendamento</a></li>
 								<li><a href="cadastro.php">Cadastrar-se</a></li>
 								<li><a href="login.php">Entrar</a></li>
@@ -125,7 +136,21 @@
 									algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso
 									interaja com um dos recursos que você usa em nosso site.</span></p>
 							<p><span style="color: rgb(68, 68, 68);">Esta política é efetiva a partir de&nbsp;31 Janeiro 2024 23:47</span></p>
-							<button name="clear_cookies" value="clean_cookies" onclick="limparCookies()">REMOVER TODOS OS MEUS DADOS</button>
+							<script>
+								function limparCredenciais() {
+									// Define a data de expiração para ontem
+									var ontem = new Date();
+									ontem.setDate(ontem.getDate() - 1);
+
+									// Define os cookies para expirar definindo a data para o passado
+									document.cookie = "googleUserID=; expires=" + ontem.toUTCString() + "; path=/";
+									document.cookie = "googleUserName=; expires=" + ontem.toUTCString() + "; path=/";
+									document.cookie = "facebookUserID=; expires=" + ontem.toUTCString() + "; path=/";
+									document.cookie = "facebookUserName=; expires=" + ontem.toUTCString() + "; path=/";
+									window.location.href = '../index.php';
+								}
+							</script>
+							<button class="button fit primary" onclick=limparCredenciais()>REMOVER DADOS DOS COOKIES</button>
 						</header>
 
 					</div>

@@ -3,6 +3,11 @@ session_start();
 include_once('../assets/php/config.php');
 include_once('../assets/php/verify_user.php');
 
+if ($logado == 'admin@barbaman.com.br') {
+	header('Location: sistema.php');
+	exit();
+}
+
 $sql = "SELECT * FROM horarios ORDER BY id DESC";
 $result = $conexao->query($sql);
 ?>
@@ -16,6 +21,7 @@ $result = $conexao->query($sql);
 	<title>Barbaman. Descubra a Melhor Barbearia em Feira de Santana para Homens</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta property="og:image" content="../images/logoclean.png" />
 	<link rel="stylesheet" href="../assets/css/style.css" />
 	<noscript>
 		<link rel="stylesheet" href="../assets/css/noscript.css" />
@@ -50,7 +56,7 @@ $result = $conexao->query($sql);
 						<a href="#menu" class="menuToggle"><span>Menu</span></a>
 						<div id="menu">
 							<ul>
-								<li><a href="https://www.barbaman.com.br/">Home</a></li>
+								<li><a href="../index.php">Home</a></li>
 								<li><a href="agendamento.php">Agendamento</a></li>
 								<li><a href="cadastro.php">Cadastrar-se</a></li>
 								<li><a href="login.php">Entrar</a></li>
@@ -83,6 +89,29 @@ $result = $conexao->query($sql);
           </svg> $userName";
 									?>
 								</div>
+								<div class="col-md-12">
+									<?php
+									// Supondo que $conexao seja sua conexão com o banco de dados
+
+									$sql = "SELECT * FROM usuarios WHERE $userID = '$logado'";
+									$result = $conexao->query($sql);
+
+									if ($result && $result->num_rows > 0) {
+										$user_data = $result->fetch_assoc();
+
+										if ($user_data['vip'] == "pendente") {
+											echo "Sua assinatura está em andamento.";
+										} elseif ($user_data['vip'] == "pago") {
+											echo "Você é um cliente VIP da nossa barbearia! Seu plano atual continua até {$user_data['data_fim']}";
+										} else {
+											echo "Escolha um dos nossos planos mensais e quinzenais e tenha um <strong>DESCONTÃO</strong> no final do mês!";
+										}
+									} else {
+										echo "Usuário não encontrado.";
+									}
+									?>
+
+								</div>
 							</div>
 					</div>
 			</div>
@@ -101,6 +130,8 @@ $result = $conexao->query($sql);
 						</thead>
 						<tbody>
 							<?php
+							$sql = "SELECT * FROM horarios ORDER BY id DESC";
+							$result = $conexao->query($sql);
 							$agendamentosEncontrados = false;
 
 							while ($user_data = mysqli_fetch_assoc($result)) {
@@ -124,6 +155,7 @@ $result = $conexao->query($sql);
 								echo "<td colspan='2'>Sem agendamentos</td>";
 								echo "</tr>";
 							}
+
 							?>
 
 						</tbody>
@@ -133,6 +165,7 @@ $result = $conexao->query($sql);
 				</header>
 
 			</div>
+
 		</section>
 		</section>
 

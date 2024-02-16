@@ -1,10 +1,14 @@
 <?php
+
 session_start();
 include_once('../assets/php/config.php');
 
 // Verifica se os cookies googleUserID e facebookUserID estão definidos
 include_once('../assets/php/verify_user.php');
-
+if ($logado == 'admin@barbaman.com.br') {
+	header('Location: sistema.php');
+	exit();
+}
 $sql = "SELECT * FROM horarios ORDER BY id DESC";
 $result = $conexao->query($sql);
 ?>
@@ -20,6 +24,7 @@ $result = $conexao->query($sql);
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="../assets/css/agendamento.css" />
+	<meta property="og:image" content="../images/logoclean.png" />
 	<noscript>
 		<link rel="stylesheet" href="../assets/css/noscript.css" />
 	</noscript>
@@ -98,7 +103,7 @@ $result = $conexao->query($sql);
 						<a href="#menu" class="menuToggle"><span>Menu</span></a>
 						<div id="menu">
 							<ul>
-								<li><a href="https://www.barbaman.com.br/">Home</a></li>
+								<li><a href="../index.php">Home</a></li>
 								<li><a href="agendamento.php">Agendamento</a></li>
 								<li><a href="cadastro.php">Cadastrar-se</a></li>
 								<li><a href="login.php">Entrar</a></li>
@@ -193,18 +198,18 @@ $result = $conexao->query($sql);
 								<label for="servico">Serviço:</label>
 								<select name="servico" id="servico">
 
-									<option value="1">Corte máquina</option>
-									<option value="2">Máquina + tesoura</option>
-									<option value="3">Máquina + barba + sobrancelhas</option>
-									<option value="4">Máquina + tesoura + barba + sobrancelhas</option>
-									<option value="5">Pigmentação</option>
-									<option value="6">Corte tesoura</option>
-									<option value="7">Pezinho cabelo ou sobrancelha</option>
-									<option value="8">Somente barba</option>
-									<option value="9">Pezinho barba + sobrancelha</option>
-									<option value="10">Platinado</option>
-									<option value="11">Luzes</option>
-									<option value="12">Reflexo</option>
+									<option value="1">Corte Máquina - R$29,90</option>
+									<option value="2">Corte Máquina + tesoura - R$39,90</option>
+									<option value="3">Cabelo + barba + sobrancelhas - R$49,90</option>
+									<option value="4">Corte tesoura - R$59,90</option>
+									<option value="5">Corte infantil - R$39,90</option>
+									<option value="6">Barba afeitada + pé + sobrancelha - R$24,90</option>
+									<option value="7">Sobrancelha design - R$14,90</option>
+									<option value="8">Pigmentação - R$39,90</option>
+									<option value="9">Luzes - R$99,90</option>
+									<option value="10">Platinado - R$99,90</option>
+									<option value="11">Reflexo - R$99,90</option>
+									<option value="12">Nevou - R$99,90</option>
 								</select>
 								<br>
 								<label for="hora">Horarios disponíveis</label>

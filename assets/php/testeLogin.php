@@ -1,39 +1,48 @@
+<script>
+    function criarCookies(nome, valor) {
+        var expira = new Date();
+        expira.setFullYear(expira.getFullYear() + 10);
+        var dtExpira = "expires=" + expira.toUTCString();
+        document.cookie = nome + "=" + valor + ";" + dtExpira + ";path=/";
+    }
+</script>
 <?php
+include_once('config.php');
 
-session_start();
-
-if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])){
-    include_once('../assets/php/config.php');
+if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])) {
     $email = strtolower($_POST['email']);
     $senha = $_POST['senha'];
+    // Evitar SQL Injection usando prepared statements
+    $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE email = ? and senha = ?");
+    $stmt->bind_param("ss", $email, $senha);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    $sql = "SELECT * FROM usuarios WHERE email = '$email' and senha = '$senha'";
-    
-    $result = $conexao->query($sql);
-
-    if(mysqli_num_rows($result) < 1){
+    if ($result->num_rows < 1) {
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
-        header('Location:loginerro.php');
+        echo "Nenhuma linha encontrada na consulta SQL.<br>";
+
+        // Redirecionar para a página de erro usando JavaScript
+        echo '<script>';
+        echo 'window.location.href = "../../pages/loginerro.php";';
+        echo '</script>';
+        exit();
+    } else {
+        $user_data = $result->fetch_assoc();
+        $nome = $user_data['nome'];
+
+        // Definir cookies
+        echo '<script>';
+        echo 'var emailEnviado = "' . $email . '";';
+        echo 'var nomeEnviado = "' . $nome . '";';
+        echo 'criarCookies("emailID", emailEnviado);';
+        echo 'criarCookies("nomeID", nomeEnviado);';
+        echo 'window.location.href = "../../pages/login.php";'; // Redirecionamento usando JavaScript
+        echo '</script>';
+        exit(); // É importante sair após o redirecionamento
     }
-    else{
-        if($email == 'admin@juniorbarber.com'){
-            $_SESSION['email'] = $email;
-            $_SESSION['senha'] = $senha;
-            header('Location:sistema.php');    
-        }
-        else{
-        $_SESSION['email'] = $email;
-        $_SESSION['senha'] = $senha;
-        header('Location:../pages/sistemausuario.php');
-        }
-    }
+} else {
+    header('Location:../../pages/login.php');
+    exit();
 }
-
-else {
-    header('Location:../pages/login.php');
-}
-
-
-
-?>

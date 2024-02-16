@@ -13,7 +13,7 @@ if(!empty($_GET['date_hora'])){
 // Atualizar o valor "reservado" para 1 na linha correspondente
 $sql = "UPDATE horarios SET reservado = 0 WHERE date_hora = '$hora'";
 mysqli_query($conn, $sql);
-$sql = "UPDATE horarios SET email = '' WHERE date_hora = '$hora'";
+$sql = "UPDATE horarios SET nome = '' WHERE date_hora = '$hora'";
 mysqli_query($conn, $sql);}
 
 // Desconectar do banco de dados

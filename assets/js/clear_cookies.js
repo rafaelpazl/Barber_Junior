@@ -8,5 +8,6 @@
             var nome = posicaoIgual > -1 ? cookie.substr(0, posicaoIgual) : cookie;
             document.cookie = nome + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT"; // Define a data de expiração para remover o cookie
         }
+        window.location.href = '../../index.php';
     }
 

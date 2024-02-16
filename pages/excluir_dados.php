@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <meta property="og:image" content="../images/logoclean.png" />
     <noscript>
         <link rel="stylesheet" href="../assets/css/noscript.css" />
     </noscript>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="../assets/js/clear_cookies.js"></script>
 </head>
 <style>
     a {
@@ -39,7 +39,7 @@
                         <a href="#menu" class="menuToggle"><span>Menu</span></a>
                         <div id="menu">
                             <ul>
-                                <li><a href="https://www.barbaman.com.br/">Home</a></li>
+                                <li><a href="../index.php">Home</a></li>
                                 <li><a href="agendamento.php">Agendamento</a></li>
                                 <li><a href="cadastro.php">Cadastrar-se</a></li>
                                 <li><a href="login.php">Entrar</a></li>
@@ -57,7 +57,19 @@
                 <section id="one" class="wrapper style1 special">
                     <div class="inner">
                         <header class="major">
-                            <button name="clear_cookies" value="clean_cookies" onclick="limparCookies()">REMOVER TODOS OS MEUS DADOS</button>
+                            <script>
+                                function limparCredenciais() {
+                                    // Define a data de expiração para ontem
+                                    var ontem = new Date();
+                                    ontem.setDate(ontem.getDate() - 1);
+
+                                    // Define os cookies para expirar definindo a data para o passado
+                                    document.cookie = "googleUserID=; expires=" + ontem.toUTCString() + "; path=/";
+                                    document.cookie = "googleUserName=; expires=" + ontem.toUTCString() + "; path=/";
+                                    window.location.href = '../index.php';
+                                }
+                            </script>
+                            <button onclick=limparCredenciais()>REMOVER TODOS OS MEUS DADOS</button>
 
                         </header>
 

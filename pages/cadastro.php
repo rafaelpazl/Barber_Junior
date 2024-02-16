@@ -1,33 +1,46 @@
+<script>
+	function criarCookies(nome, valor) {
+		var expira = new Date();
+		expira.setFullYear(expira.getFullYear() + 10);
+		var dtExpira = "expires=" + expira.toUTCString();
+		document.cookie = nome + "=" + valor + ";" + dtExpira + ";path=/";
+	}
+</script>
 <?php
-
 if (isset($_POST['submit'])) {
 	include_once('../assets/php/config.php');
 
 	$nome = $_POST['nome'];
 	$email = strtolower($_POST['email']);
 	$senha = $_POST['senha'];
-	$telefone = $_POST['telefone'];
 
-	// Verificar se o email ou telefone já existem no banco de dados
-	$query = "SELECT * FROM usuarios WHERE email = '$email' OR telefone = '$telefone'";
+	// Verificar se o email já existe no banco de dados
+	$query = "SELECT * FROM usuarios WHERE email = '$email'";
 	$result = mysqli_query($conexao, $query);
 
 	if (mysqli_num_rows($result) > 0) {
 		// O email ou telefone já estão cadastrados
-		echo '<script>alert("Email ou telefone já cadastrados.");</script>';
+		echo '<script>alert("Email já cadastrado.");</script>';
 	} else {
 		// Inserir novo usuário no banco de dados
-		$query = "INSERT INTO usuarios (nome, email, senha, telefone) VALUES ('$nome', '$email', '$senha', '$telefone')";
+		$query = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
 		mysqli_query($conexao, $query);
 		echo '<script>alert("Usuário cadastrado com sucesso.");</script>';
-		echo '<script>window.location.href = "login.php";</script>';
+
+		// Definir cookies e redirecionar para sistemausuario.php
+		echo '<script>';
+		echo 'var emailEnviado = "' . $email . '";';
+		echo 'var nomeEnviado = "' . $nome . '";';
+		echo 'criarCookies("emailID", emailEnviado);';
+		echo 'criarCookies("nomeID", nomeEnviado);';
+		echo 'window.location.href = "sistemausuario.php";';
+		echo '</script>';
 	}
 }
 ?>
 
 
 <!DOCTYPE HTML>
-
 <html>
 
 <head>
@@ -36,7 +49,7 @@ if (isset($_POST['submit'])) {
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="../assets/css/style.css" />
-	
+	<meta property="og:image" content="../images/logoclean.png" />
 	<noscript>
 		<link rel="stylesheet" href="../assets/css/noscript.css" />
 	</noscript>
@@ -52,7 +65,6 @@ if (isset($_POST['submit'])) {
 	.wrapper.style1 input[type="text"],
 	.wrapper.style1 input[type="password"],
 	.wrapper.style1 input[type="email"],
-	.wrapper.style1 input[type="tel"],
 	.wrapper.style1 select,
 	.wrapper.style1 textarea {
 		background-color: #fff !important;
@@ -70,7 +82,7 @@ if (isset($_POST['submit'])) {
 						<a href="#menu" class="menuToggle"><span>Menu</span></a>
 						<div id="menu">
 							<ul>
-								<li><a href="https://www.barbaman.com.br/">Home</a></li>
+								<li><a href="../index.php">Home</a></li>
 								<li><a href="agendamento.php">Agendamento</a></li>
 								<li><a href="cadastro.php">Cadastrar-se</a></li>
 								<li><a href="login.php">Entrar</a></li>
@@ -87,9 +99,6 @@ if (isset($_POST['submit'])) {
 
 				<section id="one" class="wrapper style1 special">
 					<div class="inner">
-
-
-
 						<form action="cadastro.php" method="POST">
 							<fieldset>
 								<h2>CADASTRO</h2>
@@ -115,26 +124,12 @@ if (isset($_POST['submit'])) {
 									<label for="senha" class="labelInput"></label>
 								</div>
 								<br><br>
-								<div class="inputBox">
-									Telefone
-									<br><br>
-									<input type="tel" name="telefone" id="telefone" class="inputUser" placeholder="(75) 9 9999-9999" required>
-									<label for="telefone" class="labelInput"></label>
-								</div>
-								<br><br>
 								<input type="submit" name="submit" id="submit" value="enviar">
 							</fieldset>
 						</form>
-
-
-
 					</div>
 				</section>
 		</section>
-
-
-
-
 
 		<!-- CTA -->
 		<section id="cta" class="wrapper style5">
@@ -156,17 +151,13 @@ if (isset($_POST['submit'])) {
 		<!-- Footer -->
 		<footer id="footer">
 			<ul class="icons">
-
-
 				<li><a href="https://www.instagram.com/barbaman17/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 				<li><a href="mailto:junniorssilva92@gmail.com?subject=Barba Man&body=" target="_blank" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 			</ul>
 			<div class="copy">
 				<a href="https://pazweb.com.br/"><img src="../images/pazweb.webp" target="_blank" width="8%" alt="Pazweb"></a>
 			</div>
-
 		</footer>
-
 	</div>
 
 	<!-- Scripts -->
@@ -177,7 +168,8 @@ if (isset($_POST['submit'])) {
 	<script src="../assets/js/breakpoints.min.js"></script>
 	<script src="../assets/js/util.js"></script>
 	<script src="../assets/js/main.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+	</script>
 </body>
 
 </html>

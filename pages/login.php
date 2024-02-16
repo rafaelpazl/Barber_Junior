@@ -2,7 +2,8 @@
 // Verificar se os cookies estão definidos
 if (
 	isset($_COOKIE['googleUserID']) || isset($_COOKIE['googleUserName']) ||
-	isset($_COOKIE['facebookUserID']) || isset($_COOKIE['facebookUserName'])
+	isset($_COOKIE['facebookUserID']) || isset($_COOKIE['facebookUserName']) ||
+	isset($_COOKIE['emailID']) || isset($_COOKIE['nomeID'])
 ) {
 	header('Location: sistemausuario.php');
 	exit();
@@ -19,6 +20,7 @@ if (
 	<title>BarbaMan</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta property="og:image" content="../images/logoclean.png" />
 	<link href="../assets/css/style.css" rel="stylesheet" />
 	<noscript>
 		<link rel="stylesheet" href="../assets/css/noscript.css" />
@@ -45,6 +47,23 @@ if (
 	.wrapper.style1 h2 {
 		color: #000 !important;
 	}
+
+	.copy img {
+		max-width: 140px !important;
+	}
+
+	.wrapper.style1 label {
+		color: #000 !important;
+
+	}
+
+	.wrapper.style1 {
+		border-radius: 15px;
+	}
+
+	.formLogin input {
+		color: #000;
+	}
 </style>
 
 <body class="landing is-preload">
@@ -57,7 +76,7 @@ if (
 						<a href="#menu" class="menuToggle"><span>Menu</span></a>
 						<div id="menu">
 							<ul>
-								<li><a href="https://www.barbaman.com.br/">Home</a></li>
+								<li><a href="../index.php">Home</a></li>
 								<li><a href="agendamento.php">Agendamento</a></li>
 								<li><a href="cadastro.php">Cadastrar-se</a></li>
 								<li><a href="login.php">Entrar</a></li>
@@ -75,77 +94,38 @@ if (
 				<section id="one" class="wrapper style1 special">
 					<h2>Sessão de Login</h2>
 					<div id="buttonDiv"></div>
-
-					<fb:login-button class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="true" scope="public_profile,email" onlogin="checkLoginState();" data-use-continue-as="true">
-					</fb:login-button>
+					<fb:login-button class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="true" scope="public_profile,email" onlogin="checkLoginState();" data-use-continue-as="true" redirect_uri="https://barbaman.com.br/assets/php/receber_dados.php"></fb:login-button>
 					<div id="status"></div>
+
+					<form action="../assets/php/testeLogin.php" method="POST" class="formLogin">
+
+						<label for="email">E-mail</label>
+						<input type="email" name="email" placeholder="Digite seu e-mail" autofocus="true" required />
+						<label for="password">Senha</label>
+						<input type="password" name="senha" placeholder="Digite sua senha" required />
+
+						<a href="cadastro.php">Criar uma conta</a>
+						<input type="submit" name="submit" value="ENTRAR" class="btn button fit primary" />
+
+					</form>
 
 					<script src="https://accounts.google.com/gsi/client" async></script>
 					<script src="https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/cjs/index.min.js"></script>
-					<!-- start SDK GOOGLE and FACEBOOK  -->
+
 					<script>
-						function criarCookie(nome, valor, expira) {
-							var dtExpira = "expires=" + expira.toUTCString();
-							document.cookie = nome + "=" + valor + ";" + "=; expires=Thu, 01 Jan 9970 00:00:00 GMT" + ";path=/";
-						}
-
-						function handleCredentialResponse(response) {
-							try {
-								const decoded = jwtDecode(response.credential);
-								console.log(decoded);
-
-								const expira = new Date();
-								expira.setFullYear(expira.getFullYear() + 10);
-
-								// Armazenar o nome e o ID do usuário nos cookies
-								criarCookie("googleUserID", decoded.sub, expira); // Cookie expira em 10 anos
-								criarCookie("googleUserName", decoded.name, expira); // Cookie expira em 10 anos
-
-								// Aqui você pode montar os dados para enviar via POST
-								const postData = {
-									name: decoded.name,
-									sub: decoded.sub,
-									given_name: decoded.given_name,
-									family_name: decoded.family_name,
-									email: decoded.email,
-									email_verified: decoded.email_verified,
-									picture: decoded.picture
-								};
-
-								// Realiza uma solicitação HTTP POST
-								fetch('testeLogin1.php', {
-										method: 'POST',
-										headers: {
-											'Content-Type': 'application/json'
-										},
-										body: JSON.stringify(postData)
-									})
-									.then(response => {
-										if (!response.ok) {
-											throw new Error('Erro ao enviar os dados');
-										}
-										return response.json();
-									})
-									.then(data => {
-										console.log('Dados enviados com sucesso:', data);
-										// Faça algo com a resposta, se necessário
-									})
-									.catch(error => {
-										console.error('Erro ao enviar os dados:', error);
-									});
-								window.location.href = '../assets/php/receber_dados.php';
-							} catch (err) {
-								console.log(err);
-							}
-
-						}
-
 						window.onload = function() {
+							initializeGoogleLogin();
+							renderGoogleLoginButton();
+						}
+
+						function initializeGoogleLogin() {
 							google.accounts.id.initialize({
 								client_id: "567882892788-feo2habtirkuu99vfeja0es73qnp5vvk.apps.googleusercontent.com",
 								callback: handleCredentialResponse
 							});
+						}
 
+						function renderGoogleLoginButton() {
 							google.accounts.id.renderButton(
 								document.getElementById("buttonDiv"), {
 									theme: "filled_black",
@@ -157,8 +137,18 @@ if (
 									width: "268px"
 								}
 							);
-
 							google.accounts.id.prompt();
+						}
+
+						function handleCredentialResponse(response) {
+							try {
+								const decoded = jwtDecode(response.credential);
+								criarCookies("googleUserID", decoded.sub);
+								criarCookies("googleUserName", decoded.name);
+								redirectToServer();
+							} catch (err) {
+								console.log(err);
+							}
 						}
 
 						function checkLoginState() {
@@ -169,55 +159,39 @@ if (
 
 						function statusChangeCallback(response) {
 							if (response.status === 'connected') {
-								// Usuário conectado com o Facebook
 								handleFacebookLogin(response.authResponse);
 							} else {
-								// Usuário não está conectado
 								document.getElementById('status').innerHTML = 'Por favor, faça login neste site.';
 							}
 						}
 
 						function handleFacebookLogin(authResponse) {
 							FB.api('/me', function(response) {
-								// Aqui você pode extrair as informações do usuário do objeto de resposta do Facebook
 								const userData = {
 									id: response.id,
 									name: response.name,
-									email: response.email // Se disponível
-									// Você pode adicionar mais informações conforme necessário
 								};
-								const expira = new Date();
-								expira.setFullYear(expira.getFullYear() + 10);
-
-								// Armazene as informações nos cookies
-								criarCookie("facebookUserID", userData.id, expira);
-								criarCookie("facebookUserName", userData.name, expira);
-
-								// Envie as informações para o servidor, se necessário
-								enviarDadosParaServidor(userData);
-								window.location.href = '../assets/php/receber_dados.php';
+								criarCookies("facebookUserID", userData.id);
+								criarCookies("facebookUserName", userData.name);
+								redirectToServer();
 							});
 						}
 
-						function enviarDadosParaServidor(userData) {
-							// Aqui você pode enviar os dados para o servidor usando fetch() ou XMLHttpRequest
-							// Certifique-se de que a URL e os detalhes da solicitação correspondam à sua configuração do servidor.
-						}
-
-						// Função para criar cookies
-						function criarCookie(nome, valor, expira) {
+						function criarCookies(nome, valor) {
+							var expira = new Date();
+							expira.setFullYear(expira.getFullYear() + 10);
 							var dtExpira = "expires=" + expira.toUTCString();
 							document.cookie = nome + "=" + valor + ";" + dtExpira + ";path=/";
 						}
+
+						function redirectToServer() {
+							window.location.href = '../assets/php/receber_dados.php';
+						}
 					</script>
 
-					<!-- Load the JS SDK asynchronously -->
-					<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0&appId=356421383951694" nonce="oZo6TO9E"></script>
-					<!-- end google facebook -->
-					<!-- slider stylesheet -->
-
-
+					<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0&appId=889639509560118" nonce="oZo6TO9E"></script>
 				</section>
+
 		</section>
 
 
@@ -250,7 +224,7 @@ if (
 				<li><a href="mailto:junniorssilva92@gmail.com?subject=Barba Man&body=" target="_blank" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 			</ul>
 			<div class="copy">
-				<a href="https://pazweb.com.br/"><img src="https://pazweb.com.br/../assets/img/whitelogo-removebg-preview.webp" target="_blank" alt="Pazweb"></a>
+				<a href="https://pazweb.com.br/"><img src="https://pazweb.com.br/../assets/img/whitelogo-removebg-preview.webp" width="20%" target="_blank" alt="Pazweb"></a>
 			</div>
 
 		</footer>

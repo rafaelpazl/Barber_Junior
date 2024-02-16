@@ -19,6 +19,7 @@ if ((!isset($_SESSION['email']) == true) and !isset($_SESSION['senha']) == true)
 	<title>BarbaMan</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta property="og:image" content="../images/logoclean.png" />
 	<link rel="stylesheet" href="../assets/css/style.css" />
 	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 	<noscript>
@@ -58,7 +59,7 @@ if ((!isset($_SESSION['email']) == true) and !isset($_SESSION['senha']) == true)
 						<a href="#menu" class="menuToggle"><span>Menu</span></a>
 						<div id="menu">
 							<ul>
-								<li><a href="https://www.barbaman.com.br/">Home</a></li>
+								<li><a href="../index.php">Home</a></li>
 								<li><a href="agendamento.php">Agendamento</a></li>
 								<li><a href="cadastro.php">Cadastrar-se</a></li>
 								<li><a href="login.php">Entrar</a></li>

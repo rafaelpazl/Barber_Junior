@@ -10,11 +10,9 @@ if (!empty($_GET['id'])) {
   if ($result->num_rows > 0) {
 
     while ($user_data = mysqli_fetch_assoc($result)) {
-      $nome = $user_data['nome'];
-      $email = $user_data['email'];
-      $senha = $user_data['senha'];
-      $telefone = $user_data['telefone'];
+    
       $vip = $user_data['vip'];
+      
     }
   } else {
     header('Location: sistema.php');
@@ -34,7 +32,7 @@ if (!empty($_GET['id'])) {
   <title>barbaman</title>
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+
 </head>
 <style>
   body {
@@ -205,31 +203,14 @@ if (!empty($_GET['id'])) {
     <form action="../assets/php/saveEdit.php" method="POST">
       <fieldset>
         <legend><b>Fórmulário de Clientes</b></legend>
-        <br>
-        <div class="inputBox">
-          <input type="text" name="nome" id="nome" class="inputUser" value="<?php echo $nome ?>" required>
-          <label for="nome" class="labelInput">Nome completo</label>
-        </div>
-        <br><br>
-        <div class="inputBox">
-          <input type="text" name="email" id="email" class="inputUser" value="<?php echo $email ?>" required>
-          <label for="email" class="labelInput">Email</label>
-        </div>
-        <br><br>
-        <div class="inputBox">
-          <input type="text" name="senha" id="senha" class="inputUser" value="<?php echo $senha ?>" required>
-          <label for="senha" class="labelInput">Senha</label>
-        </div>
-        <br><br>
-        <div class="inputBox">
-          <input type="tel" name="telefone" id="telefone" class="inputUser" value="<?php echo $telefone ?>" required>
-          <label for="telefone" class="labelInput">Telefone</label>
-        </div>
-        <br><br>
         <div class="inputBox">
           <input type="text" name="vip" id="vip" class="inputUser" value="<?php echo $vip ?>" required>
           <label for="vip" class="labelInput">Vip</label>
         </div>
+        <br><br>
+        <br><br>
+       
+        
 
         <input type="hidden" name="id" id="id" value="<?php echo $id ?>">
         <br><br>
