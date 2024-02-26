@@ -41,8 +41,9 @@
                             <ul>
                                 <li><a href="../index.php">Home</a></li>
                                 <li><a href="agendamento.php">Agendamento</a></li>
-                                <li><a href="cadastro.php">Cadastrar-se</a></li>
                                 <li><a href="login.php">Entrar</a></li>
+                                <li><a href="cadastro.php">Cadastro</a></li>
+                                <li><a href="sistemausuario.php">Meus horários</a></li>
                             </ul>
                         </div>
                     </li>

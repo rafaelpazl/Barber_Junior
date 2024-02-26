@@ -56,6 +56,8 @@ include_once('assets/php/config.php');
 								<li><a href="index.php">Home</a></li>
 								<li><a href="pages/agendamento.php">Agendamento</a></li>
 								<li><a href="pages/login.php">Entrar</a></li>
+								<li><a href="pages/cadastro.php">Cadastro</a></li>
+								<li><a href="pages/sistemausuario.php">Meus horários</a></li>
 							</ul>
 						</div>
 					</li>

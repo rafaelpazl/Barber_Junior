@@ -8,8 +8,6 @@ if (
 	header('Location: sistemausuario.php');
 	exit();
 }
-
-
 ?>
 <!DOCTYPE HTML>
 
@@ -28,7 +26,7 @@ if (
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 	<link href="../assets/css/modal.css" rel="stylesheet" />
-	<link href="../assets/css/login.css" rel="stylesheet" />
+
 </head>
 <style>
 	.wrapper.style1 {
@@ -64,6 +62,134 @@ if (
 	.formLogin input {
 		color: #000;
 	}
+
+	.container-login {
+		width: 100%;
+		max-width: 400px;
+		padding: 20px;
+	}
+
+	.login-box {
+		background-color: #fff;
+		padding: 20px;
+		border-radius: 5px;
+
+	}
+
+	.login-box h2 {
+		margin: 0 0 15px;
+		padding: 0;
+		color: #333;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	.user-box {
+		position: relative;
+		margin-bottom: 30px;
+	}
+
+	.user-box input {
+		width: 100%;
+		padding: 10px 0;
+		font-size: 16px;
+		color: #333;
+		margin-bottom: 30px;
+		border: none;
+		border-bottom: 2px solid #333;
+		outline: none;
+		background: #fff !important;
+	}
+
+	.user-box label {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 10px 0;
+		font-size: 16px;
+		color: #333;
+		pointer-events: none;
+		transition: 0.5s;
+	}
+
+	.user-box input:focus~label,
+	.user-box input:valid~label {
+		transform: translateY(-20px);
+		font-size: 14px;
+		color: #333;
+	}
+
+	.container-login submit:hover {
+		color: #000;
+	}
+
+	.password-toggle-icon {
+		position: absolute;
+		top: 50%;
+		right: 10px;
+		transform: translateY(-50%);
+		cursor: pointer;
+	}
+
+	.password-toggle-icon i {
+		font-size: 18px;
+		line-height: 1;
+		color: #333;
+		transition: color 0.3s ease-in-out;
+		margin-bottom: 20px;
+	}
+
+	.password-toggle-icon i:hover {
+		color: #000;
+	}
+
+	.wrapper.style1 input[type="password"],
+	.wrapper.style1 input[type="email"],
+	.wrapper.style1 input[type="text"] {
+		background-color: #fff !important;
+	}
+
+	.wrapper.style1 input[type="password"],
+	.wrapper.style1 input[type="email"]:focus,
+	.wrapper.style1 input[type="text"] {
+		background-color: #fff !important;
+	}
+
+	input[type="password"]:focus,
+	input[type="text"]:focus,
+	input[type="email"]:focus {
+
+		box-shadow: none;
+	}
+
+	.login-box-social {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 10px;
+	}
+
+	.wrapper.style1 input[type="submit"] {
+		color: #fff !important;
+		background-color: #ED4933;
+		border-radius: 7px;
+	}
+
+	.wrapper.style1 input[type="submit"]:hover {
+		background-color: #ED4939;
+		border: 1px solid #ED4930;
+		transition: 0.4s;
+
+	}
+
+	.login-box p {
+		font-size: small;
+		color: #000;
+	}
+
+	.termos {
+		font-size: 10px !important;
+	}
 </style>
 
 <body class="landing is-preload">
@@ -78,8 +204,9 @@ if (
 							<ul>
 								<li><a href="../index.php">Home</a></li>
 								<li><a href="agendamento.php">Agendamento</a></li>
-								<li><a href="cadastro.php">Cadastrar-se</a></li>
 								<li><a href="login.php">Entrar</a></li>
+								<li><a href="cadastro.php">Cadastro</a></li>
+								<li><a href="sistemausuario.php">Meus horários</a></li>
 							</ul>
 						</div>
 					</li>
@@ -88,26 +215,37 @@ if (
 		</header>
 
 		<!-- Banner -->
+
 		<section id="banner">
 			<div class="inner">
 
 				<section id="one" class="wrapper style1 special">
 					<h2>Sessão de Login</h2>
-					<div id="buttonDiv"></div>
-					<fb:login-button class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="true" scope="public_profile,email" onlogin="checkLoginState();" data-use-continue-as="true" redirect_uri="https://barbaman.com.br/assets/php/receber_dados.php"></fb:login-button>
-					<div id="status"></div>
+					<div class="container-login">
+						<div class="login-box">
+							<div class="login-box-social">
+								<div id="buttonDiv"></div>
+								<fb:login-button class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="true" scope="public_profile,email" onlogin="checkLoginState();" data-use-continue-as="true" redirect_uri="https://barbaman.com.br/assets/php/receber_dados.php"></fb:login-button>
+								<div id="status"></div>
+							</div>
 
-					<form action="../assets/php/testeLogin.php" method="POST" class="formLogin">
-
-						<label for="email">E-mail</label>
-						<input type="email" name="email" placeholder="Digite seu e-mail" autofocus="true" required />
-						<label for="password">Senha</label>
-						<input type="password" name="senha" placeholder="Digite sua senha" required />
-
-						<a href="cadastro.php">Criar uma conta</a>
-						<input type="submit" name="submit" value="ENTRAR" class="btn button fit primary" />
-
-					</form>
+							<form action="../assets/php/testeLogin.php" method="POST">
+								<div class="user-box">
+									<input type="email" name="email" required />
+									<label>E-mail</label>
+								</div>
+								<div class="user-box">
+									<input type="password" name="senha" id="password" required />
+									<label>Senha</label>
+									<span class="password-toggle-icon"><i class="fas fa-eye"></i></span>
+								</div>
+								<input type="submit" name="submit" id="submit" value="enviar">
+							</form>
+							<p><a href="cadastro.php">Criar uma conta</a></p><br>
+							<p><a href="recuperacao_senha.php">Esqueci a senha</a></p><br>
+							<p class="termos">Ao usar nosso site você concorda com nossas <a href="politica_de_privacidade.php">políticas de privacidade</a> e <a href="termos_e_condicoes.php">termos de uso</a>.</p>
+						</div>
+					</div>
 
 					<script src="https://accounts.google.com/gsi/client" async></script>
 					<script src="https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/cjs/index.min.js"></script>
@@ -234,7 +372,7 @@ if (
 				<div class="modal">
 					<h5>Nova atualização!</h5>
 					<span>
-						<p>Estamos sempre pensando no bem-estar e conforto dos nossos clientes, chega de preencher longos formulários e cadastre-se mais rápidamente utilizando o <strong>Google</strong>!</p>
+						<p>Estamos sempre pensando no bem-estar e conforto dos nossos clientes, chega de preencher longos formulários e cadastre-se mais rápidamente utilizando sua forma preferida!</p>
 					</span>
 					<img src="../images/logoclean.png" alt="Logo barbaman" width="40%">
 					<div class="btns">
@@ -246,6 +384,22 @@ if (
 		<!-- End modal -->
 
 		<!-- Scripts -->
+		<script>
+			const passwordField = document.getElementById("password");
+			const togglePassword = document.querySelector(".password-toggle-icon i");
+
+			togglePassword.addEventListener("click", function() {
+				if (passwordField.type === "password") {
+					passwordField.type = "text";
+					togglePassword.classList.remove("fa-eye");
+					togglePassword.classList.add("fa-eye-slash");
+				} else {
+					passwordField.type = "password";
+					togglePassword.classList.remove("fa-eye-slash");
+					togglePassword.classList.add("fa-eye");
+				}
+			});
+		</script>
 		<script src="../assets/js/script.js"></script>
 		<script src="../assets/js/jquery.min.js"></script>
 		<script src="../assets/js/jquery.scrollex.min.js"></script>

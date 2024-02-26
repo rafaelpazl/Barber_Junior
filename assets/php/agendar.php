@@ -18,6 +18,44 @@ mysqli_query($conn, $sql);
 $sql = "UPDATE horarios SET servico = '$servico' WHERE date_hora = '$hora'";
 mysqli_query($conn, $sql);
 
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../../phpmailer/src/Exception.php';
+require '../../phpmailer/src/PHPMailer.php';
+require '../../phpmailer/src/SMTP.php';
+
+try {
+    $sql = "SELECT * FROM usuarios WHERE $userID = '$logado'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $username = $row['nome'];
+
+    // Enviar o código por e-mail
+    $mail = new PHPMailer(true);
+    $mail->isSMTP();
+    $mail->Host = 'smtp.hostinger.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'contato@barbaman.com.br';
+    $mail->Password = '03012003Rew@';
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port = 465;
+    $mail->CharSet = 'UTF-8';
+    $mail->setFrom('contato@barbaman.com.br', 'Barbearia Barbaman');
+    $mail->addAddress('junniorssilva92@gmail.com');
+    $mail->isHTML(true);
+    // Assunto do e-mail
+    $mail->Subject = "Novo agendamento - $username - $hora";
+    // Corpo do e-mail
+    $mail->Body = 'Um horário foi agendado no site barbaman.';
+    $mail->send();
+    
+} catch (Exception $e) {
+    echo "<script>alert('Erro ao enviar o e-mail');</script>";
+}
+
+
 // Verificar se o usuário é VIP
 $sql = "SELECT * FROM usuarios WHERE $userID = '$logado' AND vip = 'pago'";
 $result = mysqli_query($conn, $sql);

@@ -1,6 +1,6 @@
 <?php
 
-include_once('../assets/php/config.php');
+include_once('config.php');
 
 if(isset($_POST['update'])){
     $id = $_POST['id'];

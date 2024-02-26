@@ -8,6 +8,52 @@ if (
 	header('Location: sistemausuario.php');
 	exit();
 }
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../phpmailer/src/Exception.php';
+require '../phpmailer/src/PHPMailer.php';
+require '../phpmailer/src/SMTP.php';
+
+session_start(); // Iniciar a sessão
+
+if (isset($_POST["submit"])) {
+	try {
+		// Gerar um código único
+		$validation_code = '';
+		for ($i = 0; $i < 6; $i++) {
+			$validation_code .= mt_rand(0, 9); // Adiciona um dígito aleatório (de 0 a 9) ao código
+		}
+		$nome = $_POST['nome'];
+		$email = strtolower($_POST['email']);
+		$senha = $_POST['senha'];
+
+		// Salvar o código na sessão para verificação posterior
+		$_SESSION['validation_code'] = $validation_code;
+
+		// Enviar o código por e-mail
+		$mail = new PHPMailer(true);
+		$mail->isSMTP();
+		$mail->Host = 'smtp.hostinger.com';
+		$mail->SMTPAuth = true;
+		$mail->Username = 'contato@barbaman.com.br';
+		$mail->Password = '03012003Rew@';
+		$mail->SMTPSecure = 'ssl';
+		$mail->Port = 465;
+		$mail->CharSet = 'UTF-8';
+		$mail->setFrom('contato@barbaman.com.br', 'Barbearia Barbaman');
+		$mail->addAddress($email);
+		$mail->isHTML(true);
+		$mail->Subject = 'Código de validação de e-mail';
+		$mail->Body = 'Seu código de validação é: ' . $validation_code;
+		$mail->send();
+	} catch (Exception $e) {
+		echo "<script>alert('Erro ao enviar o e-mail:');</script>";
+	}
+} else {
+	echo "<script>alert('Código não enviado');</script>";
+}
 ?>
 <!DOCTYPE HTML>
 
@@ -25,7 +71,7 @@ if (
 	</noscript>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
-	
+
 
 </head>
 <style>
@@ -67,6 +113,11 @@ if (
 		width: 100%;
 		max-width: 400px;
 		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.login-box {
@@ -190,9 +241,19 @@ if (
 	.termos {
 		font-size: 10px !important;
 	}
-	.wrapper.style1 .err{
-		color: red;
-		font-weight: bold;
+
+	.validate_code {
+		color: #000;
+	}
+
+	.wrapper.style1 input[type="text"] {
+		border-bottom: 1px solid #000;
+		margin-bottom: 40px;
+	}
+
+	.validate_code button {
+
+		background-color: #000;
 	}
 </style>
 
@@ -219,31 +280,26 @@ if (
 		</header>
 
 		<!-- Banner -->
-
 		<section id="banner">
 			<div class="inner">
 
 				<section id="one" class="wrapper style1 special">
-					<h2>Sessão de Login</h2>
-					<p class="err">usuario e/ou senha incorretos!</p>
+					<h2>Verificação de e-mail</h2>
 					<div class="container-login">
 						<div class="login-box">
-							<form action="../assets/php/testeLogin.php" method="POST">
-								<div class="user-box">
-									<input type="email" name="email" required />
-									<label>E-mail</label>
-								</div>
-								<div class="user-box">
-									<input type="password" name="senha" id="password" required />
-									<label>Senha</label>
-									<span class="password-toggle-icon"><i class="fas fa-eye"></i></span>
-								</div>
-								<input type="submit" name="submit" id="submit" value="enviar">
-							</form>
-							<p><a href="cadastro.php">Criar uma conta</a></p><br>
-							<p class="termos">Ao usar nosso site você concorda com nossas <a href="politica_de_privacidade.php">políticas de privacidade</a> e <a href="termos_e_condicoes.php">termos de uso</a>.</p>
+							<div class="validate_code" id="validate_code">
+								<form action="../assets/php/validar_cadastro.php" method="post">
+									Insira o código enviado para o seu e-mail abaixo: <input type="text" name="code" required>
+									<input type="hidden" name="nome" value="<?php echo $nome; ?>">
+									<input type="hidden" name="email" value="<?php echo $email; ?>">
+									<input type="hidden" name="senha" value="<?php echo $senha; ?>"><br>
+									<button type="submit" name="validate">Validar Código</button>
+								</form>
+							</div>
 						</div>
 					</div>
+
+
 				</section>
 
 		</section>

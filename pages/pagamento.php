@@ -1,4 +1,11 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../phpmailer/src/Exception.php';
+require '../phpmailer/src/PHPMailer.php';
+require '../phpmailer/src/SMTP.php';
 session_start();
 include_once('../assets/php/config.php');
 include_once('../assets/php/verify_user.php');
@@ -82,8 +89,9 @@ $result = $conexao->query($sql);
 	.major img {
 		max-width: 300px;
 	}
-	.banner{
-		height: 100%!important;
+
+	.banner {
+		height: 100% !important;
 	}
 </style>
 
@@ -99,8 +107,9 @@ $result = $conexao->query($sql);
 							<ul>
 								<li><a href="../index.php">Home</a></li>
 								<li><a href="agendamento.php">Agendamento</a></li>
-								<li><a href="cadastro.php">Cadastrar-se</a></li>
 								<li><a href="login.php">Entrar</a></li>
+								<li><a href="cadastro.php">Cadastro</a></li>
+								<li><a href="sistemausuario.php">Meus horários</a></li>
 							</ul>
 						</div>
 					</li>
@@ -215,6 +224,35 @@ $result = $conexao->query($sql);
 
 								$sql = "UPDATE usuarios SET dias = '30' WHERE $userID = '$logado'";
 								mysqli_query($conn, $sql);
+
+								try {
+									$sql = "SELECT * FROM usuarios WHERE $userID = '$logado'";
+									$result = mysqli_query($conn, $sql);
+									$result = mysqli_query($conn, $sql);
+									$row = mysqli_fetch_assoc($result);
+									$username = $row['nome'];
+
+									// Enviar o código por e-mail
+									$mail = new PHPMailer(true);
+									$mail->isSMTP();
+									$mail->Host = 'smtp.hostinger.com';
+									$mail->SMTPAuth = true;
+									$mail->Username = 'contato@barbaman.com.br';
+									$mail->Password = '03012003Rew@';
+									$mail->SMTPSecure = 'ssl';
+									$mail->Port = 465;
+									$mail->CharSet = 'UTF-8';
+									$mail->setFrom('contato@barbaman.com.br', 'Barbearia Barbaman');
+									$mail->addAddress('rafaelpaz10rpp@hotmail.com', $username);
+									$mail->isHTML(true);
+									// Assunto do e-mail
+									$mail->Subject = "Assinatura mensal - $username - $datahoje";
+									// Corpo do e-mail
+									$mail->Body = "$username solicitou a assinatura mensal. Plano CABELO MÁQUINA no dia $datahoje com prazo de vencimento no dia $data_um_mes_depois";
+									$mail->send();
+								} catch (Exception $e) {
+									echo "<script>alert('Erro ao enviar o e-mail');</script>";
+								}
 							}
 							if ($servico == 14) {
 								echo "R$149,90";
@@ -222,7 +260,7 @@ $result = $conexao->query($sql);
 								echo '<img src="' . $um . '" alt="QRcode" width="50%">';
 								$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
 
-								
+
 								// Obter a data atual no formato 'ano-mês-dia'
 								$datahoje = date('Y-m-d');
 
@@ -244,6 +282,34 @@ $result = $conexao->query($sql);
 
 								$sql = "UPDATE usuarios SET dias = '30' WHERE $userID = '$logado'";
 								mysqli_query($conn, $sql);
+								try {
+									$sql = "SELECT * FROM usuarios WHERE $userID = '$logado'";
+									$result = mysqli_query($conn, $sql);
+									$result = mysqli_query($conn, $sql);
+									$row = mysqli_fetch_assoc($result);
+									$username = $row['nome'];
+
+									// Enviar o código por e-mail
+									$mail = new PHPMailer(true);
+									$mail->isSMTP();
+									$mail->Host = 'smtp.hostinger.com';
+									$mail->SMTPAuth = true;
+									$mail->Username = 'contato@barbaman.com.br';
+									$mail->Password = '03012003Rew@';
+									$mail->SMTPSecure = 'ssl';
+									$mail->Port = 465;
+									$mail->CharSet = 'UTF-8';
+									$mail->setFrom('contato@barbaman.com.br', 'Barbearia Barbaman');
+									$mail->addAddress('rafaelpaz10rpp@hotmail.com', $username);
+									$mail->isHTML(true);
+									// Assunto do e-mail
+									$mail->Subject = "Assinatura mensal - $username - $datahoje";
+									// Corpo do e-mail
+									$mail->Body = "$username solicitou a assinatura mensal. Plano CABELO TESOURA no dia $datahoje com prazo de vencimento no dia $data_um_mes_depois";
+									$mail->send();
+								} catch (Exception $e) {
+									echo "<script>alert('Erro ao enviar o e-mail');</script>";
+								}
 							}
 							if ($servico == 15) {
 								echo "R$139,90";
@@ -271,13 +337,41 @@ $result = $conexao->query($sql);
 
 								$sql = "UPDATE usuarios SET dias = '30' WHERE $userID = '$logado'";
 								mysqli_query($conn, $sql);
+								try {
+									$sql = "SELECT * FROM usuarios WHERE $userID = '$logado'";
+									$result = mysqli_query($conn, $sql);
+									$result = mysqli_query($conn, $sql);
+									$row = mysqli_fetch_assoc($result);
+									$username = $row['nome'];
+
+									// Enviar o código por e-mail
+									$mail = new PHPMailer(true);
+									$mail->isSMTP();
+									$mail->Host = 'smtp.hostinger.com';
+									$mail->SMTPAuth = true;
+									$mail->Username = 'contato@barbaman.com.br';
+									$mail->Password = '03012003Rew@';
+									$mail->SMTPSecure = 'ssl';
+									$mail->Port = 465;
+									$mail->CharSet = 'UTF-8';
+									$mail->setFrom('contato@barbaman.com.br', 'Barbearia Barbaman');
+									$mail->addAddress('rafaelpaz10rpp@hotmail.com', $username);
+									$mail->isHTML(true);
+									// Assunto do e-mail
+									$mail->Subject = "Assinatura mensal - $username - $datahoje";
+									// Corpo do e-mail
+									$mail->Body = "$username solicitou a assinatura mensal. Plano CABELO + BARBA no dia $datahoje com prazo de vencimento no dia $data_um_mes_depois";
+									$mail->send();
+								} catch (Exception $e) {
+									echo "<script>alert('Erro ao enviar o e-mail');</script>";
+								}
 							}
 							if ($servico == 16) {
 								echo "R$119,90";
 								$um = '../images/pix.png';
 								echo '<img src="' . $um . '" alt="QRcode" width="50%">';
 								$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
-									// Obter a data atual no formato 'ano-mês-dia'
+								// Obter a data atual no formato 'ano-mês-dia'
 								$datahoje = date('Y-m-d');
 
 								// Obter a data daqui a um mês no formato 'ano-mês-dia'
@@ -298,13 +392,41 @@ $result = $conexao->query($sql);
 
 								$sql = "UPDATE usuarios SET dias = '30' WHERE $userID = '$logado'";
 								mysqli_query($conn, $sql);
+								try {
+									$sql = "SELECT * FROM usuarios WHERE $userID = '$logado'";
+									$result = mysqli_query($conn, $sql);
+									$result = mysqli_query($conn, $sql);
+									$row = mysqli_fetch_assoc($result);
+									$username = $row['nome'];
+
+									// Enviar o código por e-mail
+									$mail = new PHPMailer(true);
+									$mail->isSMTP();
+									$mail->Host = 'smtp.hostinger.com';
+									$mail->SMTPAuth = true;
+									$mail->Username = 'contato@barbaman.com.br';
+									$mail->Password = '03012003Rew@';
+									$mail->SMTPSecure = 'ssl';
+									$mail->Port = 465;
+									$mail->CharSet = 'UTF-8';
+									$mail->setFrom('contato@barbaman.com.br', 'Barbearia Barbaman');
+									$mail->addAddress('rafaelpaz10rpp@hotmail.com', $username);
+									$mail->isHTML(true);
+									// Assunto do e-mail
+									$mail->Subject = "Assinatura mensal - $username - $datahoje";
+									// Corpo do e-mail
+									$mail->Body = "$username solicitou a assinatura mensal. Plano CORTE + FINALIZAÇÃO COMPLETA (1X SEMANA) no dia $datahoje com prazo de vencimento no dia $data_um_mes_depois";
+									$mail->send();
+								} catch (Exception $e) {
+									echo "<script>alert('Erro ao enviar o e-mail');</script>";
+								}
 							}
 							if ($servico == 17) {
 								echo "R$84,90";
 								$um = '../images/pix.png';
 								echo '<img src="' . $um . '" alt="QRcode" width="50%">';
 								$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
-									// Obter a data atual no formato 'ano-mês-dia'
+								// Obter a data atual no formato 'ano-mês-dia'
 								$datahoje = date('Y-m-d');
 
 								// Obter a data daqui a um mês no formato 'ano-mês-dia'
@@ -325,13 +447,42 @@ $result = $conexao->query($sql);
 
 								$sql = "UPDATE usuarios SET dias = '30' WHERE $userID = '$logado'";
 								mysqli_query($conn, $sql);
+
+								try {
+									$sql = "SELECT * FROM usuarios WHERE $userID = '$logado'";
+									$result = mysqli_query($conn, $sql);
+									$result = mysqli_query($conn, $sql);
+									$row = mysqli_fetch_assoc($result);
+									$username = $row['nome'];
+
+									// Enviar o código por e-mail
+									$mail = new PHPMailer(true);
+									$mail->isSMTP();
+									$mail->Host = 'smtp.hostinger.com';
+									$mail->SMTPAuth = true;
+									$mail->Username = 'contato@barbaman.com.br';
+									$mail->Password = '03012003Rew@';
+									$mail->SMTPSecure = 'ssl';
+									$mail->Port = 465;
+									$mail->CharSet = 'UTF-8';
+									$mail->setFrom('contato@barbaman.com.br', 'Barbearia Barbaman');
+									$mail->addAddress('rafaelpaz10rpp@hotmail.com', $username);
+									$mail->isHTML(true);
+									// Assunto do e-mail
+									$mail->Subject = "Assinatura mensal - $username - $datahoje";
+									// Corpo do e-mail
+									$mail->Body = "$username solicitou a assinatura mensal. Plano FINALIZAÇÃO COMPLETA no dia $datahoje com prazo de vencimento no dia $data_um_mes_depois";
+									$mail->send();
+								} catch (Exception $e) {
+									echo "<script>alert('Erro ao enviar o e-mail');</script>";
+								}
 							}
 							if ($servico == 18) {
 								echo "R$59,90";
 								$um = '../images/pix.png';
 								echo '<img src="' . $um . '" alt="QRcode" width="50%">';
 								$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
-									// Obter a data atual no formato 'ano-mês-dia'
+								// Obter a data atual no formato 'ano-mês-dia'
 								$datahoje = date('Y-m-d');
 
 								// Obter a data daqui a um mês no formato 'ano-mês-dia'
@@ -352,13 +503,42 @@ $result = $conexao->query($sql);
 
 								$sql = "UPDATE usuarios SET dias = '15' WHERE $userID = '$logado'";
 								mysqli_query($conn, $sql);
+
+								try {
+									$sql = "SELECT * FROM usuarios WHERE $userID = '$logado'";
+									$result = mysqli_query($conn, $sql);
+									$result = mysqli_query($conn, $sql);
+									$row = mysqli_fetch_assoc($result);
+									$username = $row['nome'];
+
+									// Enviar o código por e-mail
+									$mail = new PHPMailer(true);
+									$mail->isSMTP();
+									$mail->Host = 'smtp.hostinger.com';
+									$mail->SMTPAuth = true;
+									$mail->Username = 'contato@barbaman.com.br';
+									$mail->Password = '03012003Rew@';
+									$mail->SMTPSecure = 'ssl';
+									$mail->Port = 465;
+									$mail->CharSet = 'UTF-8';
+									$mail->setFrom('contato@barbaman.com.br', 'Barbearia Barbaman');
+									$mail->addAddress('rafaelpaz10rpp@hotmail.com', $username);
+									$mail->isHTML(true);
+									// Assunto do e-mail
+									$mail->Subject = "Assinatura quinzenal - $username - $datahoje";
+									// Corpo do e-mail
+									$mail->Body = "$username solicitou a assinatura quinzenal. Plano CABELO + MÁQUINA no dia $datahoje com prazo de vencimento no dia $data_um_mes_depois";
+									$mail->send();
+								} catch (Exception $e) {
+									echo "<script>alert('Erro ao enviar o e-mail');</script>";
+								}
 							}
 							if ($servico == 19) {
 								echo "R$79,90";
 								$um = '../images/pix.png';
 								echo '<img src="' . $um . '" alt="QRcode" width="50%">';
 								$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
-									// Obter a data atual no formato 'ano-mês-dia'
+								// Obter a data atual no formato 'ano-mês-dia'
 								$datahoje = date('Y-m-d');
 
 								// Obter a data daqui a um mês no formato 'ano-mês-dia'
@@ -379,13 +559,42 @@ $result = $conexao->query($sql);
 
 								$sql = "UPDATE usuarios SET dias = '15' WHERE $userID = '$logado'";
 								mysqli_query($conn, $sql);
+								try {
+									$sql = "SELECT * FROM usuarios WHERE $userID = '$logado'";
+									$result = mysqli_query($conn, $sql);
+									$result = mysqli_query($conn, $sql);
+									$row = mysqli_fetch_assoc($result);
+									$username = $row['nome'];
+
+									// Enviar o código por e-mail
+									$mail = new PHPMailer(true);
+									$mail->isSMTP();
+									$mail->Host = 'smtp.hostinger.com';
+									$mail->SMTPAuth = true;
+									$mail->Username = 'contato@barbaman.com.br';
+									$mail->Password = '03012003Rew@';
+									$mail->SMTPSecure = 'ssl';
+									$mail->Port = 465;
+									$mail->CharSet = 'UTF-8';
+									$mail->setFrom('contato@barbaman.com.br', 'Barbearia Barbaman');
+									$mail->addAddress('rafaelpaz10rpp@hotmail.com', $username);
+									$mail->isHTML(true);
+									// Assunto do e-mail
+									$mail->Subject = "Assinatura quinzenal - $username - $datahoje";
+									// Corpo do e-mail
+									$mail->Body = "$username solicitou a assinatura quinzenal. Plano CABELO TESOURA no dia $datahoje com prazo de vencimento no dia $data_um_mes_depois";
+									$mail->send();
+								} catch (Exception $e) {
+									echo "<script>alert('Erro ao enviar o e-mail');</script>";
+								}
 							}
+
 							if ($servico == 20) {
 								echo "R$74,90";
 								$um = '../images/pix.png';
 								echo '<img src="' . $um . '" alt="QRcode" width="50%">';
 								$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
-									// Obter a data atual no formato 'ano-mês-dia'
+								// Obter a data atual no formato 'ano-mês-dia'
 								$datahoje = date('Y-m-d');
 
 								// Obter a data daqui a um mês no formato 'ano-mês-dia'
@@ -406,13 +615,41 @@ $result = $conexao->query($sql);
 
 								$sql = "UPDATE usuarios SET dias = '15' WHERE $userID = '$logado'";
 								mysqli_query($conn, $sql);
+								try {
+									$sql = "SELECT * FROM usuarios WHERE $userID = '$logado'";
+									$result = mysqli_query($conn, $sql);
+									$result = mysqli_query($conn, $sql);
+									$row = mysqli_fetch_assoc($result);
+									$username = $row['nome'];
+
+									// Enviar o código por e-mail
+									$mail = new PHPMailer(true);
+									$mail->isSMTP();
+									$mail->Host = 'smtp.hostinger.com';
+									$mail->SMTPAuth = true;
+									$mail->Username = 'contato@barbaman.com.br';
+									$mail->Password = '03012003Rew@';
+									$mail->SMTPSecure = 'ssl';
+									$mail->Port = 465;
+									$mail->CharSet = 'UTF-8';
+									$mail->setFrom('contato@barbaman.com.br', 'Barbearia Barbaman');
+									$mail->addAddress('rafaelpaz10rpp@hotmail.com', $username);
+									$mail->isHTML(true);
+									// Assunto do e-mail
+									$mail->Subject = "Assinatura quinzenal - $username - $datahoje";
+									// Corpo do e-mail
+									$mail->Body = "$username solicitou a assinatura quinzenal. Plano CABELO + BARBA no dia $datahoje com prazo de vencimento no dia $data_um_mes_depois";
+									$mail->send();
+								} catch (Exception $e) {
+									echo "<script>alert('Erro ao enviar o e-mail');</script>";
+								}
 							}
 							if ($servico == 21) {
 								echo "R$69,90";
 								$um = '../images/pix.png';
 								echo '<img src="' . $um . '" alt="QRcode" width="50%">';
 								$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
-									// Obter a data atual no formato 'ano-mês-dia'
+								// Obter a data atual no formato 'ano-mês-dia'
 								$datahoje = date('Y-m-d');
 
 								// Obter a data daqui a um mês no formato 'ano-mês-dia'
@@ -433,13 +670,41 @@ $result = $conexao->query($sql);
 
 								$sql = "UPDATE usuarios SET dias = '15' WHERE $userID = '$logado'";
 								mysqli_query($conn, $sql);
+								try {
+									$sql = "SELECT * FROM usuarios WHERE $userID = '$logado'";
+									$result = mysqli_query($conn, $sql);
+									$result = mysqli_query($conn, $sql);
+									$row = mysqli_fetch_assoc($result);
+									$username = $row['nome'];
+
+									// Enviar o código por e-mail
+									$mail = new PHPMailer(true);
+									$mail->isSMTP();
+									$mail->Host = 'smtp.hostinger.com';
+									$mail->SMTPAuth = true;
+									$mail->Username = 'contato@barbaman.com.br';
+									$mail->Password = '03012003Rew@';
+									$mail->SMTPSecure = 'ssl';
+									$mail->Port = 465;
+									$mail->CharSet = 'UTF-8';
+									$mail->setFrom('contato@barbaman.com.br', 'Barbearia Barbaman');
+									$mail->addAddress('rafaelpaz10rpp@hotmail.com', $username);
+									$mail->isHTML(true);
+									// Assunto do e-mail
+									$mail->Subject = "Assinatura quinzenal - $username - $datahoje";
+									// Corpo do e-mail
+									$mail->Body = "$username solicitou a assinatura quinzenal. Plano CORTE E FINALIZAÇÃO COMPLETA no dia $datahoje com prazo de vencimento no dia $data_um_mes_depois";
+									$mail->send();
+								} catch (Exception $e) {
+									echo "<script>alert('Erro ao enviar o e-mail');</script>";
+								}
 							}
 							if ($servico == 22) {
 								echo "R$54,90";
 								$um = '../images/pix.png';
 								echo '<img src="' . $um . '" alt="QRcode" width="50%">';
 								$pix = "00020101021126580014br.gov.bcb.pix0136940130a9-b004-453d-8071-8d48c741104e5204000053039865802BR5917JURACI J S JUNIOR6009SAO PAULO62080504CNPJ6304A464";
-									// Obter a data atual no formato 'ano-mês-dia'
+								// Obter a data atual no formato 'ano-mês-dia'
 								$datahoje = date('Y-m-d');
 
 								// Obter a data daqui a um mês no formato 'ano-mês-dia'
@@ -460,6 +725,34 @@ $result = $conexao->query($sql);
 
 								$sql = "UPDATE usuarios SET dias = '15' WHERE $userID = '$logado'";
 								mysqli_query($conn, $sql);
+								try {
+									$sql = "SELECT * FROM usuarios WHERE $userID = '$logado'";
+									$result = mysqli_query($conn, $sql);
+									$result = mysqli_query($conn, $sql);
+									$row = mysqli_fetch_assoc($result);
+									$username = $row['nome'];
+
+									// Enviar o código por e-mail
+									$mail = new PHPMailer(true);
+									$mail->isSMTP();
+									$mail->Host = 'smtp.hostinger.com';
+									$mail->SMTPAuth = true;
+									$mail->Username = 'contato@barbaman.com.br';
+									$mail->Password = '03012003Rew@';
+									$mail->SMTPSecure = 'ssl';
+									$mail->Port = 465;
+									$mail->CharSet = 'UTF-8';
+									$mail->setFrom('contato@barbaman.com.br', 'Barbearia Barbaman');
+									$mail->addAddress('rafaelpaz10rpp@hotmail.com', $username);
+									$mail->isHTML(true);
+									// Assunto do e-mail
+									$mail->Subject = "Assinatura quinzenal - $username - $datahoje";
+									// Corpo do e-mail
+									$mail->Body = "$username solicitou a assinatura quinzenal. Plano FINALIZAÇÃO COMPLETA no dia $datahoje com prazo de vencimento no dia $data_um_mes_depois";
+									$mail->send();
+								} catch (Exception $e) {
+									echo "<script>alert('Erro ao enviar o e-mail');</script>";
+								}
 							}
 							?>
 							<br>
