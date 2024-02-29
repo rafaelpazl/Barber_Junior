@@ -32,7 +32,8 @@ if (!empty($_GET['id'])) {
   <title>barbaman</title>
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
-
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7522102674262803"
+     crossorigin="anonymous"></script>
 </head>
 <style>
   body {
