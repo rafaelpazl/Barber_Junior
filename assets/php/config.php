@@ -1,6 +1,6 @@
 <?php
 $hostname = "srv951.hstgr.io";
-$usuario = "u928537771_barbaman";
-$senha = "3p3w8xC&";
-$bancodedados = "u928537771_database";
+$usuario = "u838776985_pazweb";
+$senha = "!Dr7fag|rwJ";
+$bancodedados = "u838776985_barbaman";
 $conexao = new mysqli($hostname, $usuario, $senha, $bancodedados);
